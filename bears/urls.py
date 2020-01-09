@@ -7,5 +7,4 @@ urlpatterns = [
     path('<int:pk>/', DetailView.as_view()),
     path('countries/', CountryListView.as_view()),
     path('images/', ImageView.as_view()),
-    path('home/', HomePageView.as_view(), name='home')
 ]

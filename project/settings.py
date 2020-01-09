@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'bears',
+    'doodle',
     'frontend',
 ]
 
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {  # added this to use postgres as the databse instead of the default sqlite. do this before running the initali migrations or you will need to do it again
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bears',
+        'NAME': 'doodle',
         'HOST': 'localhost',
         'PORT': 5432
     }
