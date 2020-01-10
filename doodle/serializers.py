@@ -1,8 +1,49 @@
+# from rest_framework import serializers
+# from .models import Image
+
+# class ImageSerializer(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = Image
+#         fields = ('id', 'image')
+
 from rest_framework import serializers
-from .models import Image
+from .models import Image, Category, UserAnswer, CorrectAnswer
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'category')
+
+class UserAnswerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserAnswer
+        fields = ('id', 'user_answer', 'date_guessed', 'user', 'image')
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'email') #got rid of fields: "name" and "age"
 
 class ImageSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Image
-        fields = ('id', 'image')
+        fields = ('id', 'user_drawn_image', 'date_drawn', 'user_artist')
+
+class CorrectAnswerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CorrectAnswer
+        fields = ('id', 'correct_answer', 'category', 'user_drawn_images', 'is_solved')
+
+class PopulatedCorrectAnswerSerializer(CorrectAnswerSerializer):
+    category = CategorySerializer(many=True)
+    user_drawn_images = ImageSerializer(many=True)
+
+class PopulatedImageSerializer(ImageSerializer):
+    user_artist = UserSerializer()
+
+class PopulatedUserAnswerSerializer(UserAnswerSerializer):
+    image = ImageSerializer()
