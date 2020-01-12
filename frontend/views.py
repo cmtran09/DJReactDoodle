@@ -23,3 +23,6 @@ class Assets(View):
                 return HttpResponse(file.read())
         else:
             return HttpResponseNotFound()
+
+# def index(request):
+#     return render(request, 'frontend/index.html')
