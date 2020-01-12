@@ -23,7 +23,8 @@ class ImageView(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        image = Image(image=request.FILES['file'])
+        print(request.FILES)
+        image = Image(user_drawn_image=request.FILES['user_drawn_image'])  #thissssss was shit
         image.save()
         return Response('Success')
 
