@@ -7,6 +7,7 @@ import './CSS/main.css'
 
 
 const App = () => (
+  // <Canvas />
   <BrowserRouter>
     <Switch>
       <Route exact path='/draw' component={Canvas} />

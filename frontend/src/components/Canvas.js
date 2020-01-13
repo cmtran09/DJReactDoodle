@@ -12,6 +12,8 @@ function Canvas() {
     colour = 'black',
     mousedown = false
 
+  canvas.classList.remove('noShow')
+  console.log(canvas)
   canvas.width = width
   canvas.height = height
 

@@ -7,7 +7,9 @@ module.exports = {
   context: path.resolve(__dirname, 'frontend'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'frontend/dist')
+    path: path.resolve(__dirname, 'frontend/dist'),
+    publicPath: '/'
+
   },
   devtool: 'source-maps',
   module: {
@@ -25,8 +27,11 @@ module.exports = {
     open: true,
     port: 8000,
     watchContentBase: true,
+    historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:4000'
+      '/api': 'http://localhost:4000',
+      secure: false,
+      changeOrigin: true
     }
   },
   plugins: [
