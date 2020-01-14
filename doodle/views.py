@@ -23,12 +23,12 @@ class ImageView(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        request.data['user_artist'] = request.user.id
-        imageId = ImageSerializer(data=request.data)
+        # request.data['user_artist'] = request.user.id
+        # imageId = ImageSerializer(data=request.data)
         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
-        if imageId.is_valid():
-            image.save()
-            imageId.save()
+        # if imageId.is_valid():
+        image.save()
+            # imageId.save()
         return Response('Success')
 
 
