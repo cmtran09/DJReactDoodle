@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     height: '100vh'
   },
   image: {
-    backgroundImage: 'url(https://images.unsplash.com/photo-1494396550299-e4eb26401c8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80)',
+    backgroundImage: 'url(https://cdn.dribbble.com/users/330915/screenshots/6683498/1_artist_studio.gif)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],

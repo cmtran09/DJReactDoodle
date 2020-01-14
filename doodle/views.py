@@ -22,7 +22,7 @@ class ImageView(APIView):
         serializer = ImageSerializer(images, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request):  #uncomment to add artist id to image
         # request.data['user_artist'] = request.user.id
         # imageId = ImageSerializer(data=request.data)
         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
