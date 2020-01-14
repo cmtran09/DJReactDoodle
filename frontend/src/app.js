@@ -7,7 +7,7 @@ import Canvas from './components/Canvas'
 import Test from './components/test'
 import Login from './components/Login'
 import Register from './components/Register'
-import NewCanvas from './components/NewCanvas'
+// import NewCanvas from './components/NewCanvas'
 import NavBar from './components/NavBar'
 import Draw from './components/Draw'
 import StartPage from './components/StartPage'
@@ -19,7 +19,7 @@ const App = () => (
     <Switch>
       <Route exact path='/start' component={StartPage} />
       <Route exact path='/draw' component={Draw} />
-      <Route exact path='/draw2' component={NewCanvas} />
+      {/* <Route exact path='/draw2' component={NewCanvas} /> */}
       <Route exact path='/draw1' component={Canvas} />
       <Route exact path='/test' component={Test} />
       <Route exact path='/login' component={Login} />
