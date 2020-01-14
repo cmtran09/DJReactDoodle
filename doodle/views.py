@@ -23,11 +23,13 @@ class ImageView(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        # request.data['user_artist'] = request.user.id
+        request.data['user_artist'] = request.user.id
+        images = ImageSerializer(data=request.data)
         # imageId = ImageSerializer(data=request.data)
         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
-        # if imageId.is_valid():
-        image.save()
+        if images.is_valid():
+            image.save()
+            images.save()
         # imageId.save()
         return Response('Success')
 
@@ -85,15 +87,14 @@ class CorrectAnswerView(APIView):
         return Response(user_answer.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
 
-
-class DetailView(APIView):
+class DetailImageView(APIView):
     def get(self, request, pk):
-        image =  Image.objects.get(pk=pk)
+        image = Image.objects.get(pk=pk)
         serializer = ImageSerializer(image)
         return Response(serializer.data)
 
-
-
-
-
-        
+class DetailAnswerView(APIView):
+    def get(self, request, pk):
+        answer = CorrectAnswer.objects.get(pk=pk)
+        serializer = CorrectAnswerSerializer(answer)
+        return Response(serializer.data)
