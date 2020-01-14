@@ -28,7 +28,7 @@ class ImageView(APIView):
         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
         # if imageId.is_valid():
         image.save()
-            # imageId.save()
+        # imageId.save()
         return Response('Success')
 
 
@@ -83,3 +83,17 @@ class CorrectAnswerView(APIView):
             user_answer.save()
             return Response(user_answer.data, status=HTTP_201_CREATED)
         return Response(user_answer.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+
+class DetailView(APIView):
+    def get(self, request, pk):
+        image =  Image.objects.get(pk=pk)
+        serializer = ImageSerializer(image)
+        return Response(serializer.data)
+
+
+
+
+
+        

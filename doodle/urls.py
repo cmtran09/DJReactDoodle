@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ImageView, UserView, UserAnswerView, CategoryView, CorrectAnswerView
+from .views import ImageView, UserView, UserAnswerView, CategoryView, CorrectAnswerView, DetailView
 
 urlpatterns = [
     # path('', ListView.as_view()),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('useranswers/', UserAnswerView.as_view()),
     path('categories/', CategoryView.as_view()),
     path('answers/', CorrectAnswerView.as_view()),
+    path('images/<int:pk>/', DetailView.as_view())
 ]

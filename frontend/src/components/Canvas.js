@@ -85,7 +85,7 @@ function Canvas() {
       axios({
         method: 'POST',
         data,
-        url: 'http://localhost:4000/doodle/images/',
+        url: 'http://localhost:4000/api/images/',
         headers: { 'Content-type': 'multipart/form-data' }
       })
     }, 'image/png')

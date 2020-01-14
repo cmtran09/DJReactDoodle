@@ -15,13 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('doodle/', include('doodle.urls')),
+    path('api/', include('doodle.urls')),
     path('', include('frontend.urls')),
     # path('/draw', include('frontend.urls')),
     path('api/', include('jwt_auth.urls')),
     # re_path('', include('views.urls'))
-]
+ ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('api/', include('doodle.urls')),
+#     path('', include('frontend.urls')),
+#     # path('/draw', include('frontend.urls')),
+#     path('api/', include('jwt_auth.urls')),
+#     # re_path('', include('views.urls'))
+# ]
 
