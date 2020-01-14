@@ -112,4 +112,7 @@ canvas {
   border: 5px solid black;
 }
 
+.color-picker {
+  margin: 1rem 1rem 0 1rem;
+}
 
