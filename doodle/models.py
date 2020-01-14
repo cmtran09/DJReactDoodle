@@ -17,10 +17,19 @@ class Category(models.Model):
     def __str__(self):
         return f'Category: {self.category}'
 
+class CorrectAnswer(models.Model):
+    correct_answer = models.CharField(max_length=50)
+    category = models.ManyToManyField(Category, related_name='doodle')
+    ## user_drawn_image set blank as field will be empty before anyone attempts to draw this word
+    # user_drawn_images = models.ManyToManyField(Image, related_name='doodle1', blank=True)
+    is_solved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'Correct Answer = {self.correct_answer}'
 
 class Image(models.Model):
     user_drawn_image = models.ImageField(upload_to='pics')
-    # correctAnswer = models.ForeignKey(CorrectAnswer, related_name='doodle', on_delete=models.SET_NULL)
+    correct_answer = models.ForeignKey(CorrectAnswer, related_name='doodle', null=True, on_delete=models.SET_NULL)
     ## SET_NULL: Set the field to NULL if the related director is deleted
     ## blank because people my yet to guess
     # guesses = models.ForeignKey(UserAnswer, related_name='doodle', max_length=50, blank=True)
@@ -37,16 +46,3 @@ class UserAnswer(models.Model):
     def __str__(self):
         return f'User Guess = {self.user_answer}'
 
-class CorrectAnswer(models.Model):
-    correct_answer = models.CharField(max_length=50)
-    category = models.ManyToManyField(Category, related_name='doodle')
-    ## user_drawn_image set blank as field will be empty before anyone attempts to draw this word
-    user_drawn_images = models.ManyToManyField(Image, related_name='doodle1', blank=True)
-    is_solved = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f'Correct Answer = {self.correct_answer}'
-    ## ///////////////////////////////////////////////////////
-    ##
-    ##   https://www.geeksforgeeks.org/uuidfield-django-models/  UNIQUE ID
-    ##

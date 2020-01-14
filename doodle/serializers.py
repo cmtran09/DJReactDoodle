@@ -31,12 +31,12 @@ class UserSerializer(serializers.ModelSerializer):
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ('id', 'user_drawn_image', 'date_drawn', 'user_artist')
+        fields = ('id', 'correct_answer', 'user_drawn_image', 'date_drawn', 'user_artist')
 
 class CorrectAnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = CorrectAnswer
-        fields = ('id', 'correct_answer', 'category', 'user_drawn_images', 'is_solved')
+        fields = ('id', 'correct_answer', 'category', 'is_solved')
 
 class PopulatedCorrectAnswerSerializer(CorrectAnswerSerializer):
     category = CategorySerializer(many=True)
@@ -44,6 +44,7 @@ class PopulatedCorrectAnswerSerializer(CorrectAnswerSerializer):
 
 class PopulatedImageSerializer(ImageSerializer):
     user_artist = UserSerializer()
+    correct_answer = CorrectAnswerSerializer()
 
 class PopulatedUserAnswerSerializer(UserAnswerSerializer):
     image = ImageSerializer()

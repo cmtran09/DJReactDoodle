@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Auth from '../lib/auth'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -81,11 +82,12 @@ function Canvas() {
     // link.href = canvas.toDataURL()
     let data = new FormData()
     canvas.toBlob(function (blob) {
+      data.append( 'correct_answer', 1)
       data.append('user_drawn_image', blob)
       axios({
         method: 'POST',
         data,
-        url: 'http://localhost:4000/doodle/images/',
+        url: 'http://localhost:4000/api/images/',
         headers: { 'Content-type': 'multipart/form-data' }
       })
     }, 'image/png')
