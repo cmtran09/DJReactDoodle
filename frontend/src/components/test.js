@@ -1,8 +1,18 @@
 import React from 'react'
+import ReactDOM from "react-dom";
 
-const tester = document.getElementsByClassName('yes')
-console.log(tester)
 
-export default function test() {
-  return <section className='yes'>hello</section>
+
+const Test = (props) => {
+    // console.log("test",props)
+    // console.log(props.props.match.params.id)
+
+    return (
+        <p>hello test</p>
+        
+
+    )
 }
+
+
+export default Test

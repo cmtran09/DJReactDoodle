@@ -11,7 +11,7 @@ import Link from '@material-ui/core/Link'
 
 const Guess = (props) => {
 
-
+  console.log('GUESS')
   const [data, setData] = useState([])
   const [form, updateForm] = useState()
   const [answer, setAnswer] = useState()

@@ -141,6 +141,7 @@ class DetailImageView(APIView):
         image = Image.objects.get(pk=pk)
         # if image.owner.id != request.user.id:
             # return Response(status=HTTP_401_UNAUTHORIZED)
+        print('PUT REQUEST with pk value:', pk)
         updated_image = ImageSerializer(image, data=request.data)
         if (updated_image.is_valid()):
             updated_image.save()
