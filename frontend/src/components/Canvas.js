@@ -4,7 +4,7 @@ import Auth from '../lib/auth'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function Canvas() {
+const Canvas = ({ correctAnswerId }) => {
 
   var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
@@ -32,7 +32,10 @@ function Canvas() {
   });
 
   canvas.classList.remove('noShow')
+  
   console.log(canvas)
+  console.log('answer id',correctAnswerId)
+
   canvas.width = width
   canvas.height = height
 
@@ -89,6 +92,18 @@ function Canvas() {
           'Content-type': 'multipart/form-data',
           Authorization: `Bearer ${Auth.getToken()}`
         } })
+      // data.append( 'correct_answer', correctAnswerId)
+      // // data.append( 'user_artist', 1)
+      // data.append('user_drawn_image', blob)
+      // axios({
+      //   method: 'POST',
+      //   data,
+      //   url: 'http://localhost:4000/api/images/',
+      //   headers: { 
+      //     'Content-type': 'multipart/form-data',
+      //     Authorization: `Bearer ${Auth.getToken()}`
+      //  }
+      // })
     }, 'image/png')
     // link.download = "mypainting.png"      
     // REMOVE AND MAKE THE 

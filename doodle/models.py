@@ -27,9 +27,10 @@ class CorrectAnswer(models.Model):
     def __str__(self):
         return f'Correct Answer = {self.correct_answer}'
 
+
 class Image(models.Model):
     user_drawn_image = models.ImageField(upload_to='pics')
-    correct_answer = models.ForeignKey(CorrectAnswer, related_name='doodle', null=True, on_delete=models.SET_NULL)
+    correct_answer = models.ForeignKey(CorrectAnswer, related_name='doodle', on_delete=models.CASCADE, null=True)
     ## SET_NULL: Set the field to NULL if the related director is deleted
     ## blank because people my yet to guess
     # guesses = models.ForeignKey(UserAnswer, related_name='doodle', max_length=50, blank=True)
@@ -45,4 +46,5 @@ class UserAnswer(models.Model):
 
     def __str__(self):
         return f'User Guess = {self.user_answer}'
+
 
