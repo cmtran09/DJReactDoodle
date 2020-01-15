@@ -13,11 +13,11 @@ const App = () => (
   // <Canvas />
   <BrowserRouter>
     <Switch>
+      <Route exact path='/guess/:id' component={Guess} />
       <Route exact path='/draw' component={Canvas} />
       <Route exact path='/test' component={Test} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/register' component={Register} />
-      <Route exact path='/guess/:id' component={Guess} />
     </Switch>
   </BrowserRouter>
 )

@@ -82,14 +82,13 @@ function Canvas() {
     // link.href = canvas.toDataURL()
     let data = new FormData()
     canvas.toBlob(function (blob) {
-      data.append( 'correct_answer', 1)
+      data.append('correct_answer', 1)
       data.append('user_drawn_image', blob)
-      axios({
-        method: 'POST',
-        data,
-        url: 'http://localhost:4000/api/images/',
-        headers: { 'Content-type': 'multipart/form-data' }
-      })
+      axios.post('http://localhost:4000/api/images/', data, {
+        headers: {
+          'Content-type': 'multipart/form-data',
+          Authorization: `Bearer ${Auth.getToken()}`
+        } })
     }, 'image/png')
     // link.download = "mypainting.png"      
     // REMOVE AND MAKE THE 

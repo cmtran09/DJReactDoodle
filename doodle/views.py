@@ -24,12 +24,11 @@ class ImageView(APIView):
 
     def post(self, request):
         request.data['user_artist'] = request.user.id
-        images = ImageSerializer(data=request.data)
-        # imageId = ImageSerializer(data=request.data)
+        # images = ImageSerializer(data=request.data)
         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
-        if images.is_valid():
-            image.save()
-            images.save()
+        # if images.is_valid():
+        image.save()
+            # images.save()
         # imageId.save()
         return Response('Success')
 
@@ -64,7 +63,9 @@ class UserAnswerView(APIView):
     def post(self, request):
         # links current user to the post that was made
         request.data['user'] = request.user.id
+        print('userid', request.user.id)
         answer = UserAnswerSerializer(data=request.data)
+        print('userid', answer)
         if answer.is_valid():
             answer.save()
             return Response(answer.data, status=HTTP_201_CREATED)
