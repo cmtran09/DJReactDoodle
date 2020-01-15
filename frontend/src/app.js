@@ -16,6 +16,7 @@ import Guess from './components/Guess'
 const App = () => (
   // <Canvas />
   <BrowserRouter>
+    <Navbar />
     <Switch>
       <Route exact path='/start' component={StartPage} />
       {/* <Route exact path='/draw2' component={NewCanvas} /> */}
