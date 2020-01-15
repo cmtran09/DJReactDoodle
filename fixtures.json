@@ -1,0 +1,48 @@
+[{
+  "model": "doodle.Category",
+  "pk": 1,
+  "fields": {
+    "category": "Animal"
+  }
+},
+{
+  "model": "doodle.Category",
+  "pk": 2,
+  "fields": {
+    "category": "Food"
+  }
+},
+{
+  "model": "doodle.Category",
+  "pk": 3,
+  "fields": {
+    "category": "People/Characters"
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 1,
+  "fields": {
+    "correct_answer": "Elephant",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 2,
+  "fields": {
+    "correct_answer": "Chocolate",
+    "category": [2],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 3,
+  "fields": {
+    "correct_answer": "Devil",
+    "category": [3],
+    "is_solved": false
+  }
+}]
