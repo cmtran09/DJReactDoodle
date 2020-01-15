@@ -25,9 +25,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function handleLogout () {
+  Auth.logout()
+}
+
 export default function ButtonAppBar() {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
 
 
   return (
@@ -41,18 +44,28 @@ export default function ButtonAppBar() {
             Scribble
           </Typography>
           {Auth.isAuthorized() &&
-          <IconButton color="inherit">
+            <IconButton color="inherit">
               {/* <BrushIcon badgeContent={0} color="secondary"> */}
-              <BrushIcon />
+              <Link to='/start'>
+                <BrushIcon />
+              </Link>
             </IconButton>}
-            {Auth.isAuthorized() &&
-          <IconButton color="inherit">
-              <ArtTrackIcon />
+          {Auth.isAuthorized() &&
+            <IconButton color="inherit">
+              <Link to='/guess/1'>     {/* CHANGEEEEETHISSS */}
+                <ArtTrackIcon />
+              </Link>
             </IconButton>}
-            {Auth.isAuthorized() &&
-          <IconButton color="inherit">
+            {/* 
+          {Auth.isAuthorized() &&
+            <IconButton color="inherit">
+              <div onClick={handleLogout()}>
+              <Link >
               <MeetingRoomIcon />
+              </Link>
+              </div>
             </IconButton>}
+             */}
           <Button color="inherit"><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></Button>
         </Toolbar>
       </AppBar>

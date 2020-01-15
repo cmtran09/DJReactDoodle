@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import './CSS/main.css'
+// import './CSS/main.css'
 
 import Canvas from './components/Canvas'
 import Test from './components/test'
@@ -18,12 +18,12 @@ const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/start' component={StartPage} />
-      <Route exact path='/draw' component={Draw} />
       {/* <Route exact path='/draw2' component={NewCanvas} /> */}
       <Route exact path='/draw1' component={Canvas} />
       <Route exact path='/test' component={Test} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/register' component={Register} />
+      <Route exact path='/draw/:id' component={Draw} />
       <Route exact path='/guess/:id' component={Guess} />
     </Switch>
   </BrowserRouter>

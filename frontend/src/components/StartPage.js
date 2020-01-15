@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import NavBar from './NavBar'
+import axios from 'axios'
 
 import RadialMenu from "react-radial-menu"
 
@@ -15,22 +16,36 @@ const items = [
     { "href": "http://www.twitter.com", "image": "../../dist/images/social/twitter.png)" }
 ];
 
+// let categories = [vegetables, Animals, Food, human-body]
+
 const center = {
     "image": "../../dist/images/social/share.png)"
 };
 
 
 export default function StartPage() {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        fetch(`/api/answers/`)
+          .then(resp => resp.json())
+          .then(resp => {
+            setData(resp)
+          })
+        return () => console.log('Unmounting component')
+      }, [0])
+
+    console.log(data)
     return (
         <React.Fragment>
             <NavBar />
-            <RadialMenu
+            {/* <RadialMenu
                 items={items}
                 center={center}
-            />
-            <Button variant="contained" color="primary">
-                Hello World
-            </Button>
+            /> */}
+            <Button variant="contained" color="primary" >
+                Play
+            </Button >
         </React.Fragment>
 
     )

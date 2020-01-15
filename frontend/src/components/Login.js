@@ -70,12 +70,12 @@ const Login = (props) => {
   function handleSubmit(e) {
     e.preventDefault()
     if (!form) return
-    axios.post('/api/login', form)
+    axios.post('http://localhost:4000/api/login', form)
       .then(resp => {
         Auth.setToken(resp.data.token)
         console.log(resp.data.token)
       })
-      .then(() => props.history.push('/spots'))
+      .then(() => props.history.push('/start'))
       .catch((err) => setError({ errors: 'Email or Password Incorrect' }))
   }
 

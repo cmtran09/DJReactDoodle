@@ -13,7 +13,7 @@
 .noShow {
   display: none;
 }
-
+/*  
 
 button {
   font-weight: 600;
@@ -74,7 +74,7 @@ button {
   padding: 20px;
   width: 200px;
   text-align: center;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
@@ -107,9 +107,11 @@ button:active:after {
   transition: 0s
 }
 
+*/
+
 canvas {
   background: lightgrey;
-  border: 5px solid black;
+  box-shadow: 1px 1px 7px 0px rgba(148,148,148,1);
 }
 
 .color-picker {

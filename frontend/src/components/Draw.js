@@ -1,21 +1,44 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from './NavBar'
-import { Container, Typography } from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import Canvas from './Canvas'
 
+import axios from 'axios'
 
+import Tada from 'react-reveal/Tada';
 
-export default function Draw() {
+const Draw = (props) => {
 
     const [data, setData] = useState([])
+    const [answer, setAnswer] = useState([])
 
     useEffect(() => {
-      fetch('http://localhost:4000/doodle/images')
-        .then(resp => resp.json())
-        .then(resp => setData(resp))
-      return () => console.log('Unmounting component')
-    }, [])
+        console.log(props.match.params.id)
+        // "http://localhost:4000/api/answers/1"
+        fetch(`/api/answers/${props.match.params.id}`)
+            .then(resp => resp.json())
+            .then(resp => {
+                setData(resp)
+                getAnswer(resp)
+            })
+        return () => console.log('Unmounting component')
+    }, [0])
+
+    function getAnswer(resp) {
+        axios.get(`/api/answers/${resp.id}`)
+            .then(res => {
+                setAnswer(res.data.correct_answer)
+                // console.log(res.data.correct_answer)  
+            })
+    }
+    //     axios.get(`/api/answers/${resp.id}`)
+    //       .then(res => {
+    //         setAnswer(res.data.correct_answer)
+    //         console.log(res.data.correct_answer)
+    //       })
+    //   }
+
     console.log(data)
+    console.log(answer)
 
     return (
         <React.Fragment>
@@ -23,11 +46,13 @@ export default function Draw() {
             <div>
                 Draw Pages
             </div>
-            <CssBaseline />
-            <Container maxWidth="sm">
-                <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '80vh' }} />
-            </Container>
+            <Tada>
+                <h1>{answer}</h1>
+            </Tada>
+            <Canvas correctAnswerId={props.match.params.id} />
         </React.Fragment>
 
     )
 }
+
+export default Draw
