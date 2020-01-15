@@ -26,7 +26,7 @@ class UserAnswerSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email') #got rid of fields: "name" and "age"
+        fields = ('id', 'email', 'username') #got rid of fields: "name" and "age"
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:

@@ -22,16 +22,13 @@ class ImageView(APIView):
         serializer = ImageSerializer(images, many=True)
         return Response(serializer.data)
 
-
-    def post(self, request): #uncomment to add artist id to image
-        print('User iD====:', request.user.id)
-        print('User asdasdasdasdiD====:', request.data)
+    def post(self, request):  # uncomment to add artist id to image
         request.data['user_artist'] = request.user.id
-        # images = ImageSerializer(data=request.data)
+        images = ImageSerializer(data=request.data)
         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
-        # if images.is_valid():
-        image.save()
-            # images.save()
+        if images.is_valid():
+            # image.save()
+            images.save()
         # imageId.save()
         return Response('Success')
         # print('User iD====:', request.correct_answer)
@@ -109,8 +106,15 @@ class DetailImageView(APIView):
         serializer = ImageSerializer(image)
         return Response(serializer.data)
 
+
 class DetailAnswerView(APIView):
     def get(self, request, pk):
         answer = CorrectAnswer.objects.get(pk=pk)
         serializer = CorrectAnswerSerializer(answer)
+        return Response(serializer.data)
+
+class DetailUserView(APIView):
+    def get(self, request, pk):
+        user = User.objects.get(pk=pk)
+        serializer = UserSerializer(user)
         return Response(serializer.data)

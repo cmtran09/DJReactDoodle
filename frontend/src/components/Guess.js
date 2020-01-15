@@ -32,7 +32,7 @@ const Guess = (props) => {
 
 
   function getAnswer(resp) {
-    axios.get(`/api/answers/${resp.id}`)
+    axios.get(`/api/answers/${resp.correct_answer}`)
       .then(res => {
         setAnswer(res.data.correct_answer)
         // console.log(res.data.correct_answer)
@@ -86,15 +86,27 @@ const Guess = (props) => {
       if (g1 === lower || g2 === lower || g3 === lower) {
         return 'correct'
       } else if (g1 && g2 && g3) {
-        return 'you failed'
+        return `you failed :( correct answer is: ${ans}`
       }
     }
   }
 
+
+  const [username, setUser] = useState('unknown')
+
+  function findArtist(user) {
+    if (!user) return
+    axios.get(`/api/users/${user}`)
+      .then((resp) => {
+        setUser(resp.data.username)
+      })
+  }
+
   return (<div>
-    <p>{data.user_drawn_image}</p>
-    <p>{answer}</p>
-    <img src={`http://localhost:4000${data.user_drawn_image}`} alt='drawing not found' width="1000px" height="600px" />
+    {/* <p>{data.user_drawn_image}</p> */}
+    {/* <p>{answer}</p> */}
+    <img src={`http://localhost:4000${data.user_drawn_image}`} alt='drawing not found' width="600px" height="600px" />
+    <p>Drawn by {findArtist(data.user_artist)}{username}</p>
     <form className={classes.root} noValidate autoComplete="off">
       <TextField id="outlined-basic" label="guess one" variant="filled" disabled={disable1} error={close1}
         onChange={(e) => handleInput(e)}
