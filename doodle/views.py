@@ -22,27 +22,56 @@ class ImageView(APIView):
         serializer = ImageSerializer(images, many=True)
         return Response(serializer.data)
 
-    def post(self, request):  # uncomment to add artist id to image
+
+    def post(self, request): #uncomment to add artist id to image
         request.data['user_artist'] = request.user.id
-        images = ImageSerializer(data=request.data)
+        print('User iD====:', request.user.id)
+        print('DATAAAAAAAAAAAAAAAAA====:', request.data)
+        # correct_answer = CorrectAnswer(correct_answer = request.data['correct_answer'])
+        # images = ImageSerializer(data=request.data)
         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
-        if images.is_valid():
+        # image = Image(user_drawn_image=request.FILES['user_drawn_image'], correct_answer=correct_answer)
+        print('AFTERr  first  serializer====:', image)
+        # if images.is_valid():
+        # correct_answer.save()
             # image.save()
-            images.save()
+        image.save()
         # imageId.save()
         return Response('Success')
-        # print('User iD====:', request.correct_answer)
-        # images = ImageSerializer(data=request.data)
-        # print('After serializwer====:', images)
-        # # imageId = ImageSerializer(data=request.data)
-        # image = Image(user_drawn_image=request.FILES['user_drawn_image'])
-        # print('User second serializer====:', image)
-        # if images.is_valid():
-        #     # image.save()
-        #     images.save()
-        #     # imageId.save()
-        #     return Response(images.data, status=HTTP_201_CREATED)
-        # return Response(images.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+    # def put(self, request, pk):
+    #     # request.data['correct_answer'] = request.user.id
+    #     image = Image.objects.get(pk=pk)
+    #     # if image.owner.id != request.user.id:
+    #         # return Response(status=HTTP_401_UNAUTHORIZED)
+    #     updated_image = ImageSerializer(image, data=request.data)
+    #     if (updated_image.is_valid()):
+    #         updated_image.save()
+    #         return Response(updated_image.data)
+    #     return Response(updated_image.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+    # def post(self, request):  # uncomment to add artist id to image
+    #     request.data['user_artist'] = request.user.id
+    #     images = ImageSerializer(data=request.data)
+    #     image = Image(user_drawn_image=request.FILES['user_drawn_image'])
+    #     if images.is_valid():
+    #         # image.save()
+    #         images.save()
+    #     # imageId.save()
+    #     return Response('Success')
+    #     # print('User iD====:', request.correct_answer)
+    #     # images = ImageSerializer(data=request.data)
+    #     # print('After serializwer====:', images)
+    #     # # imageId = ImageSerializer(data=request.data)
+    #     # image = Image(user_drawn_image=request.FILES['user_drawn_image'])
+    #     # print('User second serializer====:', image)
+    #     # if images.is_valid():
+    #     #     # image.save()
+    #     #     images.save()
+    #     #     # imageId.save()
+    #     #     return Response(images.data, status=HTTP_201_CREATED)
+    #     # return Response(images.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
 
 
 class UserView(APIView):
@@ -74,8 +103,11 @@ class UserAnswerView(APIView):
 
     def post(self, request):
         # links current user to the post that was made
+<<<<<<< HEAD
+=======
         request.data['user'] = request.user.id
         print('userid', request.user.id)
+>>>>>>> development
         answer = UserAnswerSerializer(data=request.data)
         print('userid', answer)
         if answer.is_valid():
@@ -92,7 +124,7 @@ class CorrectAnswerView(APIView):
 
     def post(self, request):
         # links current user to the post that was made
-        request.data['user'] = request.user.id
+        request.data['user_artist'] = request.user.id
         user_answer = CorrectAnswerSerializer(data=request.data)
         if user_answer.is_valid():
             user_answer.save()
@@ -105,6 +137,19 @@ class DetailImageView(APIView):
         image = Image.objects.get(pk=pk)
         serializer = ImageSerializer(image)
         return Response(serializer.data)
+    
+    def put(self, request, pk):
+        request.data['user_artist'] = request.user.id
+        # request.data['correct_answer'] = request.user.id
+        image = Image.objects.get(pk=pk)
+        # if image.owner.id != request.user.id:
+            # return Response(status=HTTP_401_UNAUTHORIZED)
+        updated_image = ImageSerializer(image, data=request.data)
+        if (updated_image.is_valid()):
+            updated_image.save()
+            return Response(updated_image.data)
+        return Response(updated_image.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
 
 
 class DetailAnswerView(APIView):
@@ -113,8 +158,52 @@ class DetailAnswerView(APIView):
         serializer = CorrectAnswerSerializer(answer)
         return Response(serializer.data)
 
+
+# £££££££££££££££££
+# class ImageView(APIView):
+#     def get(self, request):
+#         images = Image.objects.all()
+#         serializer = ImageSerializer(images, many=True)
+#         return Response(serializer.data)
+
+#     def post1(self, request): #uncomment to add artist id to image
+#         print('User iD====:', request.user.id)
+#         print('User asdasdasdasdiD====:', request.data)
+#         request.data['user_artist'] = request.user.id
+#         # print('User iD====:', request.correct_answer)
+#         images = ImageSerializer(data=request.data)
+#         print('After serializwer====:', images)
+#         # imageId = ImageSerializer(data=request.data)
+#         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
+#         print('User second serializer====:', image)
+#         if images.is_valid():
+#             image.save()
+#             # image.save()
+#             images.save()
+#             # imageId.save()
+#             return Response(images.data, status=HTTP_201_CREATED)
+#         return Response(images.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+#     def post(self, request): #uncomment to add artist id to image
+#         request.data['user_artist'] = request.user.id
+#         print('User iD====:', request.user.id)
+#         print('DATAAAAAAAAAAAAAAAAA====:', request.data)
+#         # correct_answer = CorrectAnswer(correct_answer = request.data['correct_answer'])
+#         # images = ImageSerializer(data=request.data)
+#         image = Image(user_drawn_image=request.FILES['user_drawn_image'])
+#         # image = Image(user_drawn_image=request.FILES['user_drawn_image'], correct_answer=correct_answer)
+#         print('AFTERr  first  serializer====:', image)
+#         # if images.is_valid():
+#         # correct_answer.save()
+#             # image.save()
+#         image.save()
+#         # imageId.save()
+#         return Response('Success')
+
 class DetailUserView(APIView):
     def get(self, request, pk):
         user = User.objects.get(pk=pk)
         serializer = UserSerializer(user)
         return Response(serializer.data)
+

@@ -32,9 +32,9 @@ const Canvas = ({ correctAnswerId }) => {
   });
 
   canvas.classList.remove('noShow')
-  
+
   console.log(canvas)
-  console.log('answer id',correctAnswerId)
+  console.log('answer id', correctAnswerId)
 
   canvas.width = width
   canvas.height = height
@@ -85,26 +85,40 @@ const Canvas = ({ correctAnswerId }) => {
     // link.href = canvas.toDataURL()
     let data = new FormData()
     canvas.toBlob(function (blob) {
-      data.append('correct_answer', 1)
+      data.append('correct_answer', 4)
       data.append('user_drawn_image', blob)
+      console.log(data)
       axios.post('http://localhost:4000/api/images/', data, {
         headers: {
           'Content-type': 'multipart/form-data',
           Authorization: `Bearer ${Auth.getToken()}`
-        } })
-      // data.append( 'correct_answer', correctAnswerId)
-      // // data.append( 'user_artist', 1)
-      // data.append('user_drawn_image', blob)
-      // axios({
-      //   method: 'POST',
-      //   data,
-      //   url: 'http://localhost:4000/api/images/',
-      //   headers: { 
-      //     'Content-type': 'multipart/form-data',
-      //     Authorization: `Bearer ${Auth.getToken()}`
-      //  }
-      // })
+        }
+      })
     }, 'image/png')
+    axios.put('http://localhost:4000/api/images/17/', { 'correct_answer': 2 }, {
+      headers: {
+        'Content-Type': 'text/plain',
+        Authorization: `Bearer ${Auth.getToken()}`
+      }
+    }
+    )
+      .then(r => console.log(r.status))
+      .catch(e => console.log(e));
+    // canvas.toBlob(function (blob) {
+    //   data.append( 'correct_answer', parseInt(correctAnswerId))
+    //   // data.append( 'user_artist', 1)
+    //   data.append
+    //   data.append('user_drawn_image', blob)
+    //   axios({
+    //     method: 'POST',
+    //     data,
+    //     url: 'http://localhost:4000/api/images/',
+    //     headers: { 
+    //       'Content-type': 'multipart/form-data',
+    //       Authorization: `Bearer ${Auth.getToken()}`
+    //    }
+    //   })
+    // }, 'image/png')
     // link.download = "mypainting.png"      
     // REMOVE AND MAKE THE 
   }, false)
@@ -128,10 +142,19 @@ const Canvas = ({ correctAnswerId }) => {
   const [locations, setLocations] = React.useState([])
   const canvasRef = React.useRef(null)
 
+  function put() {
+    axios.put('http://localhost:4000/api/images/2/', { 'correct_answer': 2 }, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${Auth.getToken()}`
+      }
+    })
+  }
 
   return (
     <React.Fragment>
       <div id="tester"></div>
+      <button onClick={put()}>CLICK</button>
       <ToastContainer />
     </React.Fragment>
     // this canvas doesn't work properly

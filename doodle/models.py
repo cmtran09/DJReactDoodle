@@ -29,7 +29,7 @@ class CorrectAnswer(models.Model):
 
 
 class Image(models.Model):
-    user_drawn_image = models.ImageField(upload_to='pics')
+    user_drawn_image = models.ImageField(upload_to='pics', null=True)
     correct_answer = models.ForeignKey(CorrectAnswer, related_name='doodle', on_delete=models.CASCADE, null=True)
     ## SET_NULL: Set the field to NULL if the related director is deleted
     ## blank because people my yet to guess

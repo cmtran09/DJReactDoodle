@@ -16,6 +16,7 @@ import StartPage from './components/StartPage'
 const App = () => (
   // <Canvas />
   <BrowserRouter>
+    <Navbar />
     <Switch>
       <Route exact path='/guess/:id' component={Guess} />
       <Route exact path='/draw' component={Canvas} />
