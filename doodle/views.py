@@ -103,11 +103,8 @@ class UserAnswerView(APIView):
 
     def post(self, request):
         # links current user to the post that was made
-<<<<<<< HEAD
-=======
         request.data['user'] = request.user.id
         print('userid', request.user.id)
->>>>>>> development
         answer = UserAnswerSerializer(data=request.data)
         print('userid', answer)
         if answer.is_valid():
