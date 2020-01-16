@@ -15,7 +15,7 @@
 }
  
 
-button {
+.buttonC {
   font-weight: 600;
   outline: none;
   display: inline-block;
@@ -39,14 +39,14 @@ span {
   background: none;
 }
 
-button span {
+.buttonC span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-button span:after {
+.buttonC span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -55,16 +55,16 @@ button span:after {
   transition: 0.5s;
 }
 
-button:hover span {
+.buttonC:hover span {
   padding-right: 25px;
 }
 
-button:hover span:after {
+.buttonC:hover span:after {
   opacity: 1;
   right: 0;
 }
 
-button {
+.buttonC {
   display: inline-block;
   font-size: 24px;
   text-align: center;
@@ -82,12 +82,12 @@ button {
 }
 
 
-button:active {
+.buttonC:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-button:after {
+.buttonC:after {
   content: "";
   background: #f1f1f1;
   display: block;
@@ -100,7 +100,7 @@ button:after {
   transition: all 0.8s
 }
 
-button:active:after {
+.buttonC:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;

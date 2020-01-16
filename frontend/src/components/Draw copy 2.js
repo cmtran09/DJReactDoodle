@@ -14,8 +14,6 @@ const Draw = (props) => {
   const [answer, setAnswer] = useState([])
   const [highestId, setHighestId] = useState([])
   const [doRefresh, setDoRefresh] = useState(false)
-  const [hideSubmit, setHideSubmit] = useState(false)
-  const [hideNext, setHideNext] = useState(true)
   // console.log('Answer ID from props', props.match.params.id)
   // const [highestId, setHighestId] = useState([])
 
@@ -77,8 +75,6 @@ const Draw = (props) => {
   });
 
   canvas.classList.remove('noShow')
-  // label.classList.remove('noShow')
-  // input.classList.remove('noShow')
 
   console.log(canvas)
 
@@ -124,35 +120,31 @@ const Draw = (props) => {
   }, false)
   canvas.addEventListener('mouseup', finishedDrawing)
 
+  var link = document.createElement('button')
+  var span = document.createElement('span')
+  // span.innerHTML('Download Image')
+  link.innerHTML = 'Submit Your Image'
+  link.appendChild(span)
+  link.addEventListener('click', function (ev) {
+    // link.href = canvas.toDataURL()
+    let data = new FormData()
+    canvas.toBlob(function (blob) {
+      data.append('correct_answer', 4)
+      data.append('user_drawn_image', blob)
+      console.log(data)
+      axios.post('http://localhost:4000/api/images/', data, {
+        headers: {
+          'Content-type': 'multipart/form-data',
+          Authorization: `Bearer ${Auth.getToken()}`
+        }
+      })
+        .then(resp => console.log(resp.data))
+      // .then(() => put1())
+    }, 'image/png')
+    // .then(put())
+  }, false)
 
-  // ================================================ HTML CANVAS ORIGINAL
-  // var link = document.createElement('button')
-  // var span = document.createElement('span')
-  // // span.innerHTML('Download Image')
-  // link.innerHTML = 'Submit Your Image'
-  // link.appendChild(span)
-  // link.addEventListener('click', function (ev) {
-  //   // link.href = canvas.toDataURL()
-  //   let data = new FormData()
-  //   canvas.toBlob(function (blob) {
-  //     data.append('correct_answer', 4)
-  //     data.append('user_drawn_image', blob)
-  //     console.log(data)
-  //     axios.post('http://localhost:4000/api/images/', data, {
-  //       headers: {
-  //         'Content-type': 'multipart/form-data',
-  //         Authorization: `Bearer ${Auth.getToken()}`
-  //       }
-  //     })
-  //       .then(resp => console.log(resp.data))
-  //     // .then(() => put1())
-  //   }, 'image/png')
-  //   // .then(put())
-  // }, false)
-
-  // document.body.appendChild(link)
-
-  // ================================================ HTML CANVAS ORIGINAL
+  document.body.appendChild(link)
 
   function refreshPage() {
     window.location.reload(false);
@@ -170,7 +162,7 @@ const Draw = (props) => {
       .then(props.history.push(route))
       .then(setDoRefresh(true))
       .then(console.log(doRefresh))
-      .then(setTimeout(function() { refreshPage(); }, 1200))
+      .then(setTimeout(function() { refreshPage(); }, 1500))
 
   }
   function put1() {
@@ -193,40 +185,21 @@ const Draw = (props) => {
     }
   }  
 
-  function saveImage (){
-    // link.href = canvas.toDataURL()
-    let data = new FormData()
-    canvas.toBlob(function (blob) {
-      data.append('correct_answer', 4)
-      data.append('user_drawn_image', blob)
-      console.log(data)
-      axios.post('http://localhost:4000/api/images/', data, {
-        headers: {
-          'Content-type': 'multipart/form-data',
-          Authorization: `Bearer ${Auth.getToken()}`
-        }
-      })
-        .then(resp => console.log(resp.data))
-        .then(setHideSubmit(true))
-      // .then(() => put1())
-    }, 'image/png')
-    // .then(put())
-  }
-
-  let submitClassName = 'buttonC '
-  let nextClassName = 'noShow'
-  if (hideSubmit) {
-    submitClassName = 'noShow'
-    nextClassName = 'buttonC'
-  }
 
   return (
     <React.Fragment>
+      <div>
+        Draw Pages
+      </div>
       <Tada>
         <h1>{answer}</h1>
       </Tada>
-      <button className={submitClassName} onClick={() => {saveImage()}}>SUBMIT YOUR IMAGE</button>
-      <button className={nextClassName} onClick={() => { put() }}>NEXT</button>
+      <div id="tester"></div>
+      <div>
+        Draw Pages
+      </div>
+      <button onClick={() => {refreshPage()}}>NEXT no put</button>
+      <button onClick={() => { put() }}>NEXT</button>
       {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
       {/* TEST */}
       {/* <Canvas correctAnswerId={props} /> */}
