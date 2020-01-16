@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom'
+import Auth from '../lib/auth'
+
+
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import BrushIcon from '@material-ui/icons/Brush';
+import ArtTrackIcon from '@material-ui/icons/ArtTrack';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+
+
+
 
 import axios from 'axios'
 
@@ -25,7 +42,7 @@ const center = {
 };
 
 
-function StartPage(items, center) {
+function StartPage(props) {
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -44,9 +61,6 @@ function StartPage(items, center) {
                 items={items}
                 center={center}
             /> */}
-            <Button variant="contained" color="primary" to='/draw/1'>
-                Start
-            </Button >
             <RadialMenu
                 items={items}
                 center={center}
@@ -59,8 +73,10 @@ function StartPage(items, center) {
             <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hard2.png" />
             <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/world%202.png" />
             <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hardest.png" />
+            <Button onClick={() => props.history.push('/draw/1')} className='buttonC'>
+                Start
+            </Button>
         </React.Fragment>
-
     )
 }
 

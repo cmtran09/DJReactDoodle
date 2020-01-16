@@ -5,6 +5,17 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const Canvas = ({ props, correctAnswerId }) => {
+  var small = document.querySelector('small')
+  var label = document.querySelector('label')
+  var input = document.querySelectorAll('input')[0]
+  var input1 = document.querySelectorAll('input')[1]
+  var canvas = document.querySelector('canvas')
+
+  canvas.classList.remove('noShow')
+  label.classList.remove('noShow')
+  input.classList.remove('noShow')
+  input1.classList.remove('noShow')
+  small.classList.remove('noShow')
 
   console.log('Answer ID from props', props.match.params.id)
   const [highestId, setHighestId] = useState([])
