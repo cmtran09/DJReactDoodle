@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
-import NavBar from './NavBar'
+
 import axios from 'axios'
 
 import RadialMenu from "react-radial-menu"
@@ -23,30 +23,37 @@ const center = {
 };
 
 
-export default function StartPage() {
+function StartPage() {
     const [data, setData] = useState([])
 
     useEffect(() => {
         fetch(`/api/answers/`)
-          .then(resp => resp.json())
-          .then(resp => {
-            setData(resp)
-          })
+            .then(resp => resp.json())
+            .then(resp => {
+                setData(resp)
+            })
         return () => console.log('Unmounting component')
-      }, [0])
+    }, [0])
 
     console.log(data)
     return (
         <React.Fragment>
-            <NavBar />
+            {/* <img src="../images/food.png" alt=""/> */}
             {/* <RadialMenu
                 items={items}
                 center={center}
             /> */}
-            <Button variant="contained" color="primary" >
-                Play
+            <Button variant="contained" color="primary" to='/draw/1'>
+                Start
             </Button >
+            <RadialMenu
+                items={items}
+                center={center}
+            />
         </React.Fragment>
 
     )
 }
+
+
+export default StartPage
