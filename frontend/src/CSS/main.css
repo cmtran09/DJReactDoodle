@@ -118,3 +118,201 @@ canvas {
   margin: 1rem 1rem 0 1rem;
 }
 
+
+/* ----------- Guess Page ------------ */
+
+.wholePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 10px;
+  background-image: url('https://cdn.pixabay.com/photo/2018/02/06/22/43/painting-3135875_960_720.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-bottom: 50px;
+}
+
+.formColumn {
+  margin-top: 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  align-items: center;
+  /* background: none; */
+}
+
+.imgColumn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 900px;
+  background: none;
+}
+
+.guessImage {
+  border: 20px solid #508eb0;
+  border-top: none;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.40), 0 17px 50px 0 rgba(0,0,0,0.40);
+  opacity: 95%;
+}
+
+.artistName {
+  opacity: 95%;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  background-color: rgb(57, 91, 104);
+  width: 670px;
+  padding: 15px;
+  border: 20px solid  #508eb0;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.result {
+  font-size: 20px;
+}
+
+.guessButton {
+  margin-top:10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+/* ----------- Profile Page ------------- */
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  text-align: center;
+}
+
+.card-image {
+  width: 800px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; 
+  text-align: center;
+  border: 8px solid rgb(28, 28, 77);
+  margin-bottom: 25px;
+}
+
+.left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  text-align: center;
+}
+
+.content {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row; 
+  text-align: center;
+}
+
+.guessList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 600px;
+  height: 90%;
+  overflow:hidden;
+}
+
+.listItem {
+  list-style-type:none;
+  text-decoration: none;
+  width: 100%;
+}
+
+.profileImage {
+  border: 5px solid rgb(28, 28, 77);
+  margin-left: 30px;
+  margin-bottom: 15px;
+  background: rgb(186, 206, 198);
+}
+
+.imgAnswer {
+  font-size: 25px;
+  color: rgb(12, 26, 53);
+  font-weight: 700;
+}
+
+.header {
+  font-size: 45px;
+  color: rgb(12, 26, 53);
+}
+
+/* ----------Drawings Page ---------- */
+
+.mainDrawings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d2637;
+  /* background-image: url("https://i.pinimg.com/originals/10/69/a7/1069a7113c399a9a9ca3185769c59134.gif");
+  background-size: 100%; */
+}
+
+
+.description {
+  background: none;
+  color: rgb(155, 217, 233);
+  margin-top: 60px;
+  margin-bottom: 70px;
+}
+
+.awesome {
+  height: 450px;
+  margin-top: -60px;
+}
+
+.imgBackground {
+  text-align: center;
+  background: #080808;
+  /* background: blue; */
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.drawingsHeader {
+  margin-top: -190px;
+  color: rgb(114, 216, 241);
+}
+
+.all {
+  position: absolute;
+  font-size: 10px;
+  top:  110px;
+  left: 46.9%;
+  font-size: 40px;
+  color: rgb(114, 216, 241);
+}
+
+.background {
+  background: none;
+}
+
+.imagesAll {
+  width: 600px;
+  height: 450px;
+  background: rgb(191, 223, 221);
+  border: 10px solid #131925;
+}
+
+.imgBackground2 {
+  background: rgb(191, 223, 221);;
+}
