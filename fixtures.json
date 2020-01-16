@@ -2,7 +2,7 @@
   "model": "doodle.Category",
   "pk": 1,
   "fields": {
-    "category": "Animal"
+    "category": "Animals"
   }
 },
 {
@@ -17,6 +17,20 @@
   "pk": 3,
   "fields": {
     "category": "People/Characters"
+  }
+},
+{
+  "model": "doodle.Category",
+  "pk": 4,
+  "fields": {
+    "category": "Tv/Films"
+  }
+},
+{
+  "model": "doodle.Category",
+  "pk": 5,
+  "fields": {
+    "category": "Countries"
   }
 },
 {
@@ -48,7 +62,7 @@
 },
 {
   "model": "doodle.CorrectAnswer",
-  "pk": 3,
+  "pk": 4,
   "fields": {
     "correct_answer": "Frog",
     "category": [1],
@@ -57,7 +71,7 @@
 },
   {
     "model": "doodle.CorrectAnswer",
-    "pk": 3,
+    "pk": 5,
     "fields": {
       "correct_answer": "Popeye",
       "category": [3],
@@ -66,9 +80,234 @@
 },
 {
   "model": "doodle.CorrectAnswer",
-  "pk": 3,
+  "pk": 6,
   "fields": {
     "correct_answer": "Owl",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 7,
+  "fields": {
+    "correct_answer": "Simpsons",
+    "category": [4],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 8,
+  "fields": {
+    "correct_answer": "Lord Of The Rings",
+    "category": [4],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 9,
+  "fields": {
+    "correct_answer": "Harry Potter",
+    "category": [4],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 10,
+  "fields": {
+    "correct_answer": "Joker",
+    "category": [3],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 11,
+  "fields": {
+    "correct_answer": "Ariel",
+    "category": [3],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 12,
+  "fields": {
+    "correct_answer": "Bane",
+    "category": [3],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 13,
+  "fields": {
+    "correct_answer": "Darth Vader",
+    "category": [3],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 14,
+  "fields": {
+    "correct_answer": "Canada",
+    "category": [5],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 15,
+  "fields": {
+    "correct_answer": "Germany",
+    "category": [5],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 16,
+  "fields": {
+    "correct_answer": "Sweden",
+    "category": [5],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 17,
+  "fields": {
+    "correct_answer": "UK",
+    "category": [5],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 18,
+  "fields": {
+    "correct_answer": "Apple",
+    "category": [2],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 19,
+  "fields": {
+    "correct_answer": "Avocado",
+    "category": [2],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 20,
+  "fields": {
+    "correct_answer": "Cake",
+    "category": [2],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 21,
+  "fields": {
+    "correct_answer": "Burger",
+    "category": [2],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 22,
+  "fields": {
+    "correct_answer": "Giraffe",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 23,
+  "fields": {
+    "correct_answer": "Mongoose",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 24,
+  "fields": {
+    "correct_answer": "Python",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 25,
+  "fields": {
+    "correct_answer": "Tiger",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 26,
+  "fields": {
+    "correct_answer": "Panda",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 27,
+  "fields": {
+    "correct_answer": "Stag",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 28,
+  "fields": {
+    "correct_answer": "Shark",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 29,
+  "fields": {
+    "correct_answer": "Koala",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 30,
+  "fields": {
+    "correct_answer": "Kangaroo",
+    "category": [1],
+    "is_solved": false
+  }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 31,
+  "fields": {
+    "correct_answer": "Manta Ray",
     "category": [1],
     "is_solved": false
   }
