@@ -108,14 +108,14 @@ const Guess = (props) => {
 
   // function changeForm() {
   //   if (props.match.params.id + 1) {
-      
+
   //   }
   // }
 
   return (<div className="wholePage">
     <div className="imgColumn">
       <h2 className="artistName">Drawn by {findArtist(data.user_artist)}{username}</h2>
-      <img className="guessImage" src={`http://localhost:4000${data.user_drawn_image}`} alt='drawing not found' width="700px" height="600px" />
+      <img className="guessImage" src={`${data.user_drawn_image}`} alt='drawing not found' width="700px" height="600px" />
     </div>
     <div>
       <div className="formColumn">
