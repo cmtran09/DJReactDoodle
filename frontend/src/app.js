@@ -10,9 +10,10 @@ import Register from './components/Register'
 import Guess from './components/Guess'
 import Drawings from './components/Drawings'
 import Profile from './components/Profile'
-import StartPage from './components/StartPage'
 import NavBar from './components/NavBar'
-// import Draw from './components/Draw'
+import Draw from './components/Draw'
+import NewCanvas from './components/NewCanvas'
+import StartPage from './components/StartPage'
 
 const App = () => (
   // <Canvas />
@@ -26,8 +27,9 @@ const App = () => (
       <Route exact path='/register' component={Register} />
       <Route exact path='/drawings' component={Drawings} />
       <Route exact path='/profile' component={Profile} />
-      {/* <Route exact path='/draw/:id' component={Draw} /> */}
       <Route exact path='/start' component={StartPage} />
+      <Route exact path='/draw/:id' component={Draw} />
+      <Route exact path='/new/:id' component={NewCanvas} />
     </Switch>
   </BrowserRouter>
 )

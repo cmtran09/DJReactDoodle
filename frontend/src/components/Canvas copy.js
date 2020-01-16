@@ -9,7 +9,7 @@ const Canvas = ({ props, correctAnswerId }) => {
   console.log('Answer ID from props', props.match.params.id)
   const [highestId, setHighestId] = useState([])
 
-  console.log(typeof (highestId))
+  console.log(typeof(highestId))
 
   const route = `/draw/${parseInt(props.match.params.id) + 1}`
 
@@ -115,9 +115,9 @@ const Canvas = ({ props, correctAnswerId }) => {
         }
       })
         .then(resp => console.log(resp.data))
-      // .then(() => put1())
+        // .then(() => put1())
     }, 'image/png')
-    // .then(put())
+      // .then(put())
   }, false)
 
   document.body.appendChild(link)
@@ -126,28 +126,28 @@ const Canvas = ({ props, correctAnswerId }) => {
   const canvasRef = React.useRef(null)
 
   function put() {
-    axios.put(`http://localhost:4000/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
+    axios.put(`http://localhost:4000/api/images/${highestId.length+1}/`, { 'correct_answer': props.match.params.id }, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${Auth.getToken()}`
       }
     })
-      .then(console.log('PUT DONE'))
+    .then(console.log('PUT DONE'))
   }
   function put1() {
-    axios.put(`http://localhost:4000/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
+    axios.put(`http://localhost:4000/api/images/${highestId.length+1}/`, { 'correct_answer': props.match.params.id }, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${Auth.getToken()}`
       }
     })
-      .then(console.log('PUT DONE'))
+    .then(console.log('PUT DONE'))
   }
 
   return (
     <React.Fragment>
       <div id="tester"></div>
-      <button onClick={() => { put(); props.history.push(route) }}>NEXT</button>
+      <button onClick={() => {put(); props.history.push(route)}}>NEXT</button>
       {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
       <ToastContainer />
     </React.Fragment>

@@ -1,27 +1,51 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import NavBar from './NavBar'
+import Canvas from './Canvas'
+import NewCanvas from './NewCanvas'
 import Auth from '../lib/auth'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
-const Canvas = ({ props, correctAnswerId }) => {
+import axios from 'axios'
 
-  console.log('Answer ID from props', props.match.params.id)
+import Tada from 'react-reveal/Tada'
+
+const Draw = (props) => {
+
+  const [data, setData] = useState([])
+  const [answer, setAnswer] = useState([])
   const [highestId, setHighestId] = useState([])
+  const [doRefresh, setDoRefresh] = useState(false)
+  // console.log('Answer ID from props', props.match.params.id)
+  // const [highestId, setHighestId] = useState([])
 
-  console.log(typeof (highestId))
+  console.log(typeof(highestId))
 
   const route = `/draw/${parseInt(props.match.params.id) + 1}`
 
   useEffect(() => {
+    console.log(props.match.params.id)
     // "http://localhost:4000/api/answers/1"
-    fetch(`/api/images/`)
+    fetch(`/api/answers/${props.match.params.id}`)
       .then(resp => resp.json())
       .then(resp => {
-        setHighestId(resp)
+        setData(resp)
+        getAnswer(resp)
       })
+      .then(fetch(`/api/images/`)
+        .then(resp => resp.json())
+        .then(resp => {
+          setHighestId(resp)
+        })
+      )
     return () => console.log('Unmounting component')
   }, [0])
+
+  function getAnswer(resp) {
+    axios.get(`/api/answers/${resp.id}`)
+      .then(res => {
+        setAnswer(res.data.correct_answer)
+        // console.log(res.data.correct_answer)  
+      })
+  }
 
   console.log('highest ID', highestId.length)
 
@@ -54,7 +78,7 @@ const Canvas = ({ props, correctAnswerId }) => {
 
   console.log(canvas)
 
-  console.log('correctAnswerId', correctAnswerId)
+  // console.log('correctAnswerId', correctAnswerId)
 
   canvas.width = width
   canvas.height = height
@@ -122,17 +146,24 @@ const Canvas = ({ props, correctAnswerId }) => {
 
   document.body.appendChild(link)
 
-  const [locations, setLocations] = React.useState([])
-  const canvasRef = React.useRef(null)
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
 
   function put() {
-    axios.put(`http://localhost:4000/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
+    axios.put(`http://localhost:4000/api/images/${highestId.length+1}/`, { 'correct_answer': props.match.params.id }, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${Auth.getToken()}`
       }
     })
       .then(console.log('PUT DONE'))
+      .then(props.history.push(route))
+      .then(setDoRefresh(true))
+      .then(console.log(doRefresh))
+      .then(setTimeout(function() { refreshPage(); }, 1500))
+
   }
   function put1() {
     axios.put(`http://localhost:4000/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
@@ -144,25 +175,38 @@ const Canvas = ({ props, correctAnswerId }) => {
       .then(console.log('PUT DONE'))
   }
 
+  console.log(data)
+  console.log(answer)
+  console.log(doRefresh)
+
+  function checkRefreshPage(){
+    if(doRefresh){
+      refreshPage()
+    }
+  }  
+
+
   return (
     <React.Fragment>
+      <div>
+        Draw Pages
+      </div>
+      <Tada>
+        <h1>{answer}</h1>
+      </Tada>
       <div id="tester"></div>
-      <button onClick={() => { put(); props.history.push(route) }}>NEXT</button>
+      <div>
+        Draw Pages
+      </div>
+      <button onClick={() => {refreshPage()}}>NEXT no put</button>
+      <button onClick={() => { put() }}>NEXT</button>
       {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
-      <ToastContainer />
+      {/* TEST */}
+      {/* <Canvas correctAnswerId={props} /> */}
+      {/* <NewCanvas props={props} /> */}
     </React.Fragment>
-    // this canvas doesn't work properly
-    // <canvas
-    //   ref={canvasRef}
-    //   onClick={e => {
-    //     const canvas = canvasRef.current
-    //     const ctx = canvas.getContext('2d')
-    //     const newLocation = { x: e.clientX, y: e.clientY }
-    //     setLocations([...locations, newLocation])
-    //     draw(ctx)
-    //   }}
-    // />
+
   )
 }
 
-export default Canvas
+export default Draw

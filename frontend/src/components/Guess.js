@@ -11,7 +11,7 @@ import Link from '@material-ui/core/Link'
 
 const Guess = (props) => {
 
-
+  console.log('GUESS')
   const [data, setData] = useState([])
   const [form, updateForm] = useState()
   const [answer, setAnswer] = useState()
@@ -141,7 +141,7 @@ const Guess = (props) => {
         </form>
         <p className="result">{checkFail(guess1, guess2, guess3, answer)}</p>
       </div>
-      <button className="guessButton" onClick={() => props.history.push(route)}>
+      <button className="guessButton buttonC" onClick={() => props.history.push(route)}>
         {'Next Painting'}
       </button>
     </div>
