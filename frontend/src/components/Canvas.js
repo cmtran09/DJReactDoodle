@@ -143,7 +143,7 @@ const Canvas = ({ correctAnswerId }) => {
   const canvasRef = React.useRef(null)
 
   function put() {
-    axios.put('http://localhost:4000/api/images/2/', { 'correct_answer': 2 }, {
+    axios.put('http://localhost:4000/api/images/12/', { 'correct_answer': 2 }, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${Auth.getToken()}`

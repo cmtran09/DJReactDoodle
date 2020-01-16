@@ -11,12 +11,13 @@ import Guess from './components/Guess'
 import Drawings from './components/Drawings'
 import Profile from './components/Profile'
 import StartPage from './components/StartPage'
+import NavBar from './components/NavBar'
 // import Draw from './components/Draw'
 
 const App = () => (
   // <Canvas />
   <BrowserRouter>
-    <Navbar />
+    <NavBar />
     <Switch>
       <Route exact path='/guess/:id' component={Guess} />
       <Route exact path='/draw' component={Canvas} />

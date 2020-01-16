@@ -19,6 +19,7 @@ const Guess = (props) => {
   const [guess2, setGuess2] = useState()
   const [guess3, setGuess3] = useState()
 
+
   useEffect(() => {
     // console.log(props.match.params.id)
     fetch(`/api/images/${props.match.params.id}`)
@@ -26,6 +27,8 @@ const Guess = (props) => {
       .then(resp => {
         setData(resp)
         getAnswer(resp)
+        setDisable1(false); setDisable2(false); setDisable3(false)
+        setClose1(false); setClose2(false), setClose3(false)
       })
     return () => console.log('Unmounting component')
   }, [props.match.params.id])
@@ -54,7 +57,6 @@ const Guess = (props) => {
 
   function handleInput(e) {
     updateForm(e.target.value)
-    // console.log(form)
   }
 
   const route = `/guess/${parseInt(props.match.params.id) + 1}`
@@ -75,7 +77,8 @@ const Guess = (props) => {
       if (ans.toLowerCase() === input.toLowerCase()) {
         console.log(props.match.params.id)
         setDisable1(true); setDisable2(true); setDisable3(true)
-      } else if (num === 1) setClose1(true); else if (num === 2) setClose2(true); else if (num === 3) setClose3(true)
+      } else if (num === 1) setClose1(true), setDisable1(true); else if (num === 2) setClose2(true), setDisable2(true); else if (num === 3) setClose3(true), setDisable3(true)
+      updateForm('')
       ev.preventDefault()
     }
   }
@@ -84,9 +87,9 @@ const Guess = (props) => {
     if (ans) {
       const lower = ans.toLowerCase()
       if (g1 === lower || g2 === lower || g3 === lower) {
-        return 'correct'
+        return 'Correct!'
       } else if (g1 && g2 && g3) {
-        return `you failed :( correct answer is: ${ans}`
+        return `:( Correct answer is: ${ans}`
       }
     }
   }
@@ -102,35 +105,46 @@ const Guess = (props) => {
       })
   }
 
-  return (<div>
-    {/* <p>{data.user_drawn_image}</p> */}
-    {/* <p>{answer}</p> */}
-    <img src={`http://localhost:4000${data.user_drawn_image}`} alt='drawing not found' width="600px" height="600px" />
-    <p>Drawn by {findArtist(data.user_artist)}{username}</p>
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="guess one" variant="filled" disabled={disable1} error={close1}
-        onChange={(e) => handleInput(e)}
-        onKeyPress={(ev) => {
-          checkMatch(ev, answer, form, 1)
-        }}
-      />
-      <TextField id="outlined-basic2" label="guess two" variant="filled" disabled={disable2} error={close2}
-        onChange={(e) => handleInput(e)}
-        onKeyPress={(ev) => {
-          checkMatch(ev, answer, form, 2)
-        }}
-      />
-      <TextField id="outlined-basic3" label="guess three" variant="filled" disabled={disable3} error={close3}
-        onChange={(e) => handleInput(e)}
-        onKeyPress={(ev) => {
-          checkMatch(ev, answer, form, 3)
-        }}
-      />
-    </form>
-    <p>{checkFail(guess1, guess2, guess3, answer)}</p>
-    <button onClick={() => props.history.push(route)}>
-      {'Next Painting'}
-    </button>
+
+  // function changeForm() {
+  //   if (props.match.params.id + 1) {
+      
+  //   }
+  // }
+
+  return (<div className="wholePage">
+    <div className="imgColumn">
+      <h2 className="artistName">Drawn by {findArtist(data.user_artist)}{username}</h2>
+      <img className="guessImage" src={`http://localhost:4000${data.user_drawn_image}`} alt='drawing not found' width="700px" height="600px" />
+    </div>
+    <div>
+      <div className="formColumn">
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField id="outlined-basic" label="guess one" variant="filled" disabled={disable1} error={close1}
+            onChange={(e) => handleInput(e)}
+            onKeyPress={(ev) => {
+              checkMatch(ev, answer, form, 1)
+            }}
+          />
+          <TextField id="outlined-basic2" label="guess two" variant="filled" disabled={disable2} error={close2}
+            onChange={(e) => handleInput(e)}
+            onKeyPress={(ev) => {
+              checkMatch(ev, answer, form, 2)
+            }}
+          />
+          <TextField id="outlined-basic3" label="guess three" variant="filled" disabled={disable3} error={close3}
+            onChange={(e) => handleInput(e)}
+            onKeyPress={(ev) => {
+              checkMatch(ev, answer, form, 3)
+            }}
+          />
+        </form>
+        <p className="result">{checkFail(guess1, guess2, guess3, answer)}</p>
+      </div>
+      <button className="guessButton" onClick={() => props.history.push(route)}>
+        {'Next Painting'}
+      </button>
+    </div>
   </div>
   )
 
