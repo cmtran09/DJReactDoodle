@@ -51,7 +51,11 @@ const Draw = (props) => {
 
   console.log('highest ID', highestId.length)
 
-
+  var small = document.querySelector('small')
+  var label = document.querySelector('label')
+  var input = document.querySelectorAll('input')[0]
+  var input1 = document.querySelectorAll('input')[1]
+  var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
     mouseX = 0,
     mouseY = 0,
@@ -76,6 +80,11 @@ const Draw = (props) => {
     lineWidth = width;
   });
 
+  canvas.classList.remove('noShow')
+  label.classList.remove('noShow')
+  input.classList.remove('noShow')
+  input1.classList.remove('noShow')
+  small.classList.remove('noShow')
 
   console.log(canvas)
 
