@@ -6,24 +6,26 @@ import axios from 'axios'
 
 import RadialMenu from "react-radial-menu"
 
+import food from '../images/food.png'
+
 const items = [
-    { "href": "http://www.facebook.com", "image": "../../dist/images/social/facebook.png)" },
-    { "href": "http://www.reddit.com", "image": "../../dist/images/social/reddit.png)" },
-    { "href": "http://www.flickr.com", "image": "../../dist/images/social/flickr.png)" },
-    { "href": "http://www.google.com", "image": "../../dist/images/social/googleplus.png)" },
-    { "href": "http://www.linkedin.com", "image": "../../dist/images/social/linkedin.png)" },
-    { "href": "http://www.twitter.com", "image": "../../dist/images/social/twitter.png)" },
-    { "href": "http://www.twitter.com", "image": "../../dist/images/social/twitter.png)" }
+    { "href": "http://www.facebook.com", "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/food.png" },
+    { "href": "http://www.reddit.com", "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/animals.png" },
+    { "href": "http://www.flickr.com", "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/emotion.png" },
+    { "href": "http://www.google.com", "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/fruitveg.png" },
+    { "href": "http://www.linkedin.com", "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hard2.png" },
+    { "href": "http://www.twitter.com", "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/world%202.png" },
+    { "href": "http://www.twitter.com", "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hardest.png" }
 ];
 
 // let categories = [vegetables, Animals, Food, human-body]
 
 const center = {
-    "image": "../../dist/images/social/share.png)"
+    "image": "https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/paintbrush.png"
 };
 
 
-function StartPage() {
+function StartPage(items, center) {
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -38,7 +40,6 @@ function StartPage() {
     console.log(data)
     return (
         <React.Fragment>
-            {/* <img src="../images/food.png" alt=""/> */}
             {/* <RadialMenu
                 items={items}
                 center={center}
@@ -50,6 +51,14 @@ function StartPage() {
                 items={items}
                 center={center}
             />
+            <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/food.png' />
+            <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/paintbrush.png" />
+            <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/animals.png" />
+            <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/emotion.png" />
+            <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/fruitveg.png" />
+            <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hard2.png" />
+            <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/world%202.png" />
+            <img src="https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hardest.png" />
         </React.Fragment>
 
     )
