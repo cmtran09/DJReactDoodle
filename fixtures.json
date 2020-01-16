@@ -45,4 +45,31 @@
     "category": [3],
     "is_solved": false
   }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 3,
+  "fields": {
+    "correct_answer": "Frog",
+    "category": [1],
+    "is_solved": false
+  }
+},
+  {
+    "model": "doodle.CorrectAnswer",
+    "pk": 3,
+    "fields": {
+      "correct_answer": "Popeye",
+      "category": [3],
+      "is_solved": false
+    }
+},
+{
+  "model": "doodle.CorrectAnswer",
+  "pk": 3,
+  "fields": {
+    "correct_answer": "Owl",
+    "category": [1],
+    "is_solved": false
+  }
 }]
