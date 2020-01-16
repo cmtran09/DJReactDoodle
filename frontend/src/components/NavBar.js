@@ -9,7 +9,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import BrushIcon from '@material-ui/icons/Brush';
 import ArtTrackIcon from '@material-ui/icons/ArtTrack';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import AllInboxIcon from '@material-ui/icons/AllInbox';
 import { Link } from 'react-router-dom'
+import FaceIcon from '@material-ui/icons/Face';
 
 import Auth from '../lib/auth'
 
@@ -25,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function handleLogout () {
+function handleLogout() {
   Auth.logout()
 }
 
@@ -46,8 +48,15 @@ export default function ButtonAppBar() {
           {Auth.isAuthorized() &&
             <IconButton color="inherit">
               {/* <BrushIcon badgeContent={0} color="secondary"> */}
-              <Link to='/start'>
+              <Link to='/draw/1'>
                 <BrushIcon />
+              </Link>
+            </IconButton>}
+          {Auth.isAuthorized() &&
+            <IconButton color="inherit">
+              {/* <BrushIcon badgeContent={0} color="secondary"> */}
+              <Link to='/drawings'>
+                <AllInboxIcon />
               </Link>
             </IconButton>}
           {Auth.isAuthorized() &&
@@ -56,7 +65,13 @@ export default function ButtonAppBar() {
                 <ArtTrackIcon />
               </Link>
             </IconButton>}
-            {/* 
+          {Auth.isAuthorized() &&
+            <IconButton color="inherit">
+              <Link to='/profile'>     {/* CHANGEEEEETHISSS */}
+                <FaceIcon />
+              </Link>
+            </IconButton>}
+          {/* 
           {Auth.isAuthorized() &&
             <IconButton color="inherit">
               <div onClick={handleLogout()}>
@@ -67,6 +82,10 @@ export default function ButtonAppBar() {
             </IconButton>}
              */}
           <Button color="inherit"><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></Button>
+          <Button color="inherit"><Link to="/register" style={{ textDecoration: 'none' }}>Register</Link></Button>
+          {Auth.isAuthorized() &&
+            <Button color="inherit"><Link to="/login" style={{ textDecoration: 'none' }} onClick={() => {handleLogout()}}>Log Out</Link></Button>
+          }
         </Toolbar>
       </AppBar>
     </div>
