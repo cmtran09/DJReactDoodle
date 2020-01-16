@@ -40,7 +40,7 @@ const Drawings = (props) => {
         {/* not sure why it has to be + 1 for it to go to correct image? */}
         <div className="card-image imagesAll background">
           <figure>
-            <img className="imgBackground2" src={`http://localhost:4000${image.user_drawn_image}`} width="500px" height="400px" alt="Placeholder image" />
+            <img className="imgBackground2" src={`${image.user_drawn_image}`} width="500px" height="400px" alt="Placeholder image" />
           </figure>
         </div>
       </Link>

@@ -131,42 +131,13 @@ const Draw = (props) => {
   canvas.addEventListener('mouseup', finishedDrawing)
 
 
-  // ================================================ HTML CANVAS ORIGINAL
-  // var link = document.createElement('button')
-  // var span = document.createElement('span')
-  // // span.innerHTML('Download Image')
-  // link.innerHTML = 'Submit Your Image'
-  // link.appendChild(span)
-  // link.addEventListener('click', function (ev) {
-  //   // link.href = canvas.toDataURL()
-  //   let data = new FormData()
-  //   canvas.toBlob(function (blob) {
-  //     data.append('correct_answer', 4)
-  //     data.append('user_drawn_image', blob)
-  //     console.log(data)
-  //     axios.post('http://localhost:4000/api/images/', data, {
-  //       headers: {
-  //         'Content-type': 'multipart/form-data',
-  //         Authorization: `Bearer ${Auth.getToken()}`
-  //       }
-  //     })
-  //       .then(resp => console.log(resp.data))
-  //     // .then(() => put1())
-  //   }, 'image/png')
-  //   // .then(put())
-  // }, false)
-
-  // document.body.appendChild(link)
-
-  // ================================================ HTML CANVAS ORIGINAL
-
   function refreshPage() {
     window.location.reload(false);
   }
 
 
   function put() {
-    axios.put(`http://localhost:4000/api/images/${highestId.length+1}/`, { 'correct_answer': props.match.params.id }, {
+    axios.put(`/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${Auth.getToken()}`
@@ -178,15 +149,6 @@ const Draw = (props) => {
       .then(console.log(doRefresh))
       .then(setTimeout(function() { refreshPage(); }, 1200))
 
-  }
-  function put1() {
-    axios.put(`http://localhost:4000/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${Auth.getToken()}`
-      }
-    })
-      .then(console.log('PUT DONE'))
   }
 
   console.log(data)
@@ -206,7 +168,7 @@ const Draw = (props) => {
       data.append('correct_answer', 4)
       data.append('user_drawn_image', blob)
       console.log(data)
-      axios.post('http://localhost:4000/api/images/', data, {
+      axios.post('/api/images/', data, {
         headers: {
           'Content-type': 'multipart/form-data',
           Authorization: `Bearer ${Auth.getToken()}`

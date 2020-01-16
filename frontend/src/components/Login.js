@@ -70,7 +70,7 @@ const Login = (props) => {
   function handleSubmit(e) {
     e.preventDefault()
     if (!form) return
-    axios.post('http://localhost:4000/api/login', form)
+    axios.post('/api/login', form)
       .then(resp => {
         Auth.setToken(resp.data.token)
         console.log(resp.data.token)

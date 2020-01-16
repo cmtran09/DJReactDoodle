@@ -65,7 +65,7 @@ const Profile = (props) => {
         <figure className="content left-side">
           <div>
             <Link to={`/guess/${id + 1}`}>
-              <img className="profileImage" src={`http://localhost:4000${img.user_drawn_image}`} alt="Placeholder image" width="300px" height="300px" />
+              <img className="profileImage" src={`${img.user_drawn_image}`} alt="Placeholder image" width="300px" height="300px" />
             </Link>
             <div className="imgAnswer">{checkAnswer(img)}</div>
           </div>
