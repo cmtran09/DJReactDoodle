@@ -39,7 +39,7 @@ const Draw = (props) => {
         })
       )
     return () => console.log('Unmounting component')
-  }, [0])
+  }, [props.match.params.id])
 
   function getAnswer(resp) {
     axios.get(`/api/answers/${resp.id}`)
@@ -136,7 +136,7 @@ const Draw = (props) => {
   }
 
   function randomAnswer() {
-    return Math.floor(Math.random() * 31) + 1  
+    return Math.floor(Math.random() * 31) + 1
   }
 
 
@@ -151,7 +151,7 @@ const Draw = (props) => {
       .then(props.history.push(`/draw/${randomAnswer()}`))
       .then(setDoRefresh(true))
       .then(console.log(doRefresh))
-      .then(setTimeout(function () { refreshPage(); }, 1200))
+      .then(setTimeout(function () { refreshPage(); }, 10)) // why is there a set timeout here fo 1200?
 
   }
 
@@ -185,11 +185,16 @@ const Draw = (props) => {
     // .then(put())
   }
 
+  // const skipButton = document.querySelector('.nextAnswerButton')
+  let nextAnswerButton = 'buttonC'
   let submitClassName = 'buttonC '
   let nextClassName = 'noShow'
+  let canvas2 = 'show'
   if (hideSubmit) {
     submitClassName = 'noShow'
     nextClassName = 'buttonC'
+    nextAnswerButton = 'noShow'
+    canvas2 = 'noShow'
   }
 
   return (
@@ -201,7 +206,8 @@ const Draw = (props) => {
       <button className={nextClassName} onClick={() => { put() }}>NEXT</button>
       {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
       {/* TEST */}
-      <canvas />
+      <canvas className={canvas2}/>
+      <button className={nextAnswerButton} onClick={() => { props.history.push(`/draw/${randomAnswer()}`) }}> SKIP</button>
       {/* <NewCanvas props={props} /> */}
     </React.Fragment>
 
