@@ -19,7 +19,7 @@ const Draw = (props) => {
   // console.log('Answer ID from props', props.match.params.id)
   // const [highestId, setHighestId] = useState([])
 
-  console.log(typeof(highestId))
+  console.log(typeof (highestId))
 
   const route = `/draw/${parseInt(props.match.params.id) + 1}`
 
@@ -147,7 +147,7 @@ const Draw = (props) => {
       .then(props.history.push(route))
       .then(setDoRefresh(true))
       .then(console.log(doRefresh))
-      .then(setTimeout(function() { refreshPage(); }, 1200))
+      .then(setTimeout(function () { refreshPage(); }, 1200))
 
   }
 
@@ -155,13 +155,13 @@ const Draw = (props) => {
   console.log(answer)
   console.log(doRefresh)
 
-  function checkRefreshPage(){
-    if(doRefresh){
+  function checkRefreshPage() {
+    if (doRefresh) {
       refreshPage()
     }
-  }  
+  }
 
-  function saveImage (){
+  function saveImage() {
     // link.href = canvas.toDataURL()
     let data = new FormData()
     canvas.toBlob(function (blob) {
@@ -193,7 +193,7 @@ const Draw = (props) => {
       <Tada>
         <h1>{answer}</h1>
       </Tada>
-      <button className={submitClassName} onClick={() => {saveImage()}}>SUBMIT YOUR IMAGE</button>
+      <button className={submitClassName} onClick={() => { saveImage() }}>SUBMIT YOUR IMAGE</button>
       <button className={nextClassName} onClick={() => { put() }}>NEXT</button>
       {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
       {/* TEST */}
