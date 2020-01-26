@@ -20,10 +20,10 @@ const App = () => (
   <BrowserRouter>
     <NavBar />
     <Switch>
+      <Route exact path='/' component={Login} />
       <Route exact path='/guess/:id' component={Guess} />
       <Route exact path='/draw' component={Canvas} />
       <Route exact path='/test' component={Test} />
-      <Route exact path='/login' component={Login} />
       <Route exact path='/register' component={Register} />
       <Route exact path='/drawings' component={Drawings} />
       <Route exact path='/profile' component={Profile} />

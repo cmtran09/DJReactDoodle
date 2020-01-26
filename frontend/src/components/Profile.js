@@ -76,6 +76,7 @@ const Profile = (props) => {
   }
 
 
+
   return (<section className="profile">
     <h1 className="header">Your Creations</h1>
     <div className="imgDiv"> {data.map((image, id) => {

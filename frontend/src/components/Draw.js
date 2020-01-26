@@ -80,7 +80,7 @@ const Draw = (props) => {
     lineWidth = width;
   });
 
-  canvas.classList.remove('noShow')
+  // canvas.classList.remove('noShow')
   label.classList.remove('noShow')
   input.classList.remove('noShow')
   input1.classList.remove('noShow')
@@ -197,7 +197,7 @@ const Draw = (props) => {
       <button className={nextClassName} onClick={() => { put() }}>NEXT</button>
       {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
       {/* TEST */}
-      {/* <Canvas correctAnswerId={props} /> */}
+      <canvas />
       {/* <NewCanvas props={props} /> */}
     </React.Fragment>
 
