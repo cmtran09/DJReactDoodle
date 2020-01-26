@@ -135,6 +135,10 @@ const Draw = (props) => {
     window.location.reload(false);
   }
 
+  function randomAnswer() {
+    return Math.floor(Math.random() * 31) + 1  
+  }
+
 
   function put() {
     axios.put(`/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
@@ -144,7 +148,7 @@ const Draw = (props) => {
       }
     })
       .then(console.log('PUT DONE'))
-      .then(props.history.push(route))
+      .then(props.history.push(`/draw/${randomAnswer()}`))
       .then(setDoRefresh(true))
       .then(console.log(doRefresh))
       .then(setTimeout(function () { refreshPage(); }, 1200))
