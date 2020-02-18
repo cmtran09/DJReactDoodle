@@ -27,13 +27,13 @@ This was a **week-long paired project**.
 ## Technology Used
 
 > HTML5   
-> CSS3 
+> CSS3    
 > Python    
 > Django  
 > PostgreSQL   
 > JavaScript (ES6)   
 > React.js   
-> Node.js
+> Node.js  
 > Material-UI   
 > Webpack  
 > Heroku    
@@ -47,7 +47,7 @@ This was a **week-long paired project**.
 Prior to the project idea being signed-off by a General Assembly Instructor, we
 drew out a diagram that showed all the relationships between each of our models for the database.
 
-These models included:
+These models included:   
 - Correct Answer  
 - Image  
 - User  
@@ -159,11 +159,66 @@ The site includes a Login, Register, Home, Draw, All drawings, Guess and Profile
 
 ##### Draw Page
 
-Here the user will be given a randomly generated word which is either an object or character. Using a modified Canvas element the user can attempt to draw it.
+Here the user will be given a randomly generated word which is either an object, character or animal. Using a modified Canvas element the user can attempt to draw it.
+
+The user has access to both a colour pallet and brush size scale for extra creative freedom.
+
+The user can either skip to a new word or submit their drawing. In order for the image to be submitted, the image must first be turned into a Binary Large Object (BLOB). A POST request is then made which saves the blob to the back-end and the path to that image in the database.
+
+A PUT request was then added to the 'next' button in order to update the database with information about the word linked to that image and the artist who drew it. 
+
+#### All Drawings Page
+
+This page shows all the images drawn by users on the site. 
+A user can click on any of the images and this will take them to the **guess page.**
+
+#### Guess Page
+
+The guess page shows the drawing and the username of the person who drew that drawing. The user is given three chances to guess what the drawing is.
+
+The user must enter their answer and press **enter** in order for the guess to be checked against the answer. 
+
+If you fail all three times, the user will be told what the correct answer was. All guesses made will be sent to the database via a POST request which is linked to the image that the user made the guess to.
+
+	  function checkMatch(ev, ans, input, num) {
+	    if (ev.key === 'Enter') {
+	      if (num === 1) setGuess1(input); else if (num === 2) setGuess2(input); else if (num === 3) setGuess3(input)
+	      axios.post('/api/useranswers/', { 'user_answer': input, 'image': parseInt(props.match.params.id) }, {
+	        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+	      })
+	        .then(() => console.log('success'))
+	      if (ans.toLowerCase() === input.toLowerCase()) {
+	        setDisable1(true); setDisable2(true); setDisable3(true)
+	      } else if (num === 1) setClose1(true), setDisable1(true); else if (num === 2) setClose2(true), setDisable2(true); else if (num === 3) setClose3(true), setDisable3(true)
+	      updateForm('')
+	      ev.preventDefault()
+	    }
+	  }
+	
+	  function checkFail(g1, g2, g3, ans) {
+	    if (ans) {
+	      const lower = ans.toLowerCase()
+	      if (g1 === lower || g2 === lower || g3 === lower) {
+	        return 'Correct!'
+	      } else if (g1 && g2 && g3) {
+	        return `:( Correct answer is: ${ans}`
+	      }
+	    }
+	  }
+
+#### Profile Page
+
+The profile page shows the user all of the drawings they've ever made and all the guesses (right or wrong) that other users have made of those images.
+
+## Bugs
+
+Unfortunatley we ran out of time to be able to link the POST and PUT requests into a single POST request for the image on the draw page. At the moment, when adding correct_answer or user_artist to the image, this won't save to the database and instead has to be done seperately.
+
+After opening the draw page, the color pallet and size scale will also show up on other pages. This is due to the fact that the canavs and these other features can only be rendered when placed directly into the index.html file.
 
 
 I am most proud of having been able to save and retrieve images to and from the back-end, as PostgreSQL does not allow image files to be saved directly to the database. Instead, we saved the pathway to the image and used Django methodologies to allow storage and retrieval of the image itself.
  
 In the future, I would love to incorporate categories for people to draw from, establish a points system for correct guesses and improve the overall appearance of the app.
-
+Be able to link the POST and PUT requests for the image on draw page.
 
