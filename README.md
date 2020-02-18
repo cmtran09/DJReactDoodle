@@ -165,7 +165,33 @@ The user has access to both a colour pallet and brush size scale for extra creat
 
 The user can either skip to a new word or submit their drawing. In order for the image to be submitted, the image must first be turned into a Binary Large Object (BLOB). A POST request is then made which saves the blob to the back-end and the path to that image in the database.
 
+	  function saveImage() {
+	    let data = new FormData()
+	    canvas.toBlob(function (blob) {
+	      data.append('correct_answer', 4)
+	      data.append('user_drawn_image', blob)
+	      axios.post('/api/images/', data, {
+	        headers: {
+	          'Content-type': 'multipart/form-data',
+	          Authorization: `Bearer ${Auth.getToken()}`
+	        }
+	      })
+	        .then(resp => console.log(resp.data))
+	    }, 'image/png')
+	  }
+
 A PUT request was then added to the 'next' button in order to update the database with information about the word linked to that image and the artist who drew it. 
+
+	  function put() {
+	    axios.put(`/api/images/${highestId.length + 1}/`, { 'correct_answer': props.match.params.id }, {
+	      headers: {
+	        'Content-Type': 'application/json',
+	        Authorization: `Bearer ${Auth.getToken()}`
+	      }
+	    })
+	      .then(props.history.push(`/draw/${randomAnswer()}`))
+	      .then(setDoRefresh(true))
+	  }
 
 #### All Drawings Page
 
@@ -210,15 +236,24 @@ If you fail all three times, the user will be told what the correct answer was. 
 
 The profile page shows the user all of the drawings they've ever made and all the guesses (right or wrong) that other users have made of those images.
 
-## Bugs
+## Wins & Blockers
 
-Unfortunatley we ran out of time to be able to link the POST and PUT requests into a single POST request for the image on the draw page. At the moment, when adding correct_answer or user_artist to the image, this won't save to the database and instead has to be done seperately.
+Unfortunatley we ran out of time to be able to link the POST and PUT requests into a single POST request for the image on the draw page. At the moment, when adding `correct_answer` or `user_artist` to the image, this won't save to the database and instead has to be done seperately.
 
-After opening the draw page, the color pallet and size scale will also show up on other pages. This is due to the fact that the canavs and these other features can only be rendered when placed directly into the index.html file.
+After opening the draw page, the color pallet, size scale and canvas would also show up on other pages. This is due to the fact that the canavs and these other features can only be rendered when placed directly into the index.html file. To fix this, we had added and removed a 'noShow' class which toggled the display of the items for each page.
 
+I am most proud of having been able to save and retrieve images to and from the back-end, as PostgreSQL does not allow image files to be saved directly to the database.
 
-I am most proud of having been able to save and retrieve images to and from the back-end, as PostgreSQL does not allow image files to be saved directly to the database. Instead, we saved the pathway to the image and used Django methodologies to allow storage and retrieval of the image itself.
+Getting the Canvas element to work and create successful POST requests with was also a big win.
+
+## Future Features
  
-In the future, I would love to incorporate categories for people to draw from, establish a points system for correct guesses and improve the overall appearance of the app.
-Be able to link the POST and PUT requests for the image on draw page.
+* Incorporate categories for people to draw from, as we have already set up the back-end in order for this to be possible.
+* Establish a points system for correct guesses.
+* Improve the overall appearance of the app.
+* Link the POST and PUT requests for the image on the draw page.
+
+## Lessons Learnt
+
+Due to many of the features of the application being new to us, we knew we needed to keep the site simple in order to finish the MVP within the time-frame. However we should have left more time in order to design the front-end more and improve the user-experience.
 
