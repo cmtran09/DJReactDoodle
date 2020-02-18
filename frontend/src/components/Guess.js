@@ -106,11 +106,16 @@ const Guess = (props) => {
   }
 
 
-  // function changeForm() {
-  //   if (props.match.params.id + 1) {
+  
+  var small = document.querySelector('small')
+  var label = document.querySelector('label')
+  var input = document.querySelectorAll('input')[0]
+  var input1 = document.querySelectorAll('input')[1]
 
-  //   }
-  // }
+  label.classList.add('noShow')
+  input.classList.add('noShow')
+  input1.classList.add('noShow')
+  small.classList.add('noShow')
 
   return (<div className="wholePage">
     <div className="imgColumn">

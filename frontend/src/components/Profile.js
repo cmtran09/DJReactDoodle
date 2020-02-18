@@ -75,6 +75,16 @@ const Profile = (props) => {
     }
   }
 
+  var small = document.querySelector('small')
+  var label = document.querySelector('label')
+  var input = document.querySelectorAll('input')[0]
+  var input1 = document.querySelectorAll('input')[1]
+
+  label.classList.add('noShow')
+  input.classList.add('noShow')
+  input1.classList.add('noShow')
+  small.classList.add('noShow')
+
 
 
   return (<section className="profile">

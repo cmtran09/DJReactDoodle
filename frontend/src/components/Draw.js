@@ -195,6 +195,10 @@ const Draw = (props) => {
     nextClassName = 'buttonC'
     nextAnswerButton = 'noShow'
     canvas2 = 'noShow'
+    label.classList.add('noShow')
+    input.classList.add('noShow')
+    input1.classList.add('noShow')
+    small.classList.add('noShow')
   }
 
   return (
