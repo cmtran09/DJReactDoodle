@@ -69,7 +69,7 @@ const Guess = (props) => {
 
   function checkMatch(ev, ans, input, num) {
     if (ev.key === 'Enter') {
-      if (num === 1) setGuess1(input); else if (num === 2) setGuess2(input); else if (num === 3) setGuess3(input)
+      if (num === 1) setGuess1(input.toLowerCase()); else if (num === 2) setGuess2(input.toLowerCase()); else if (num === 3) setGuess3(input.toLowerCase())
       axios.post('/api/useranswers/', { 'user_answer': input, 'image': parseInt(props.match.params.id) }, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
