@@ -1,5 +1,8 @@
 # Project-4: Scribble
 
+
+### ![](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) General Assembly, Software Engineering Immersive
+
 ## Overview
 
 Link to the site on [Heroku](https://djscribble.herokuapp.com/)
@@ -159,6 +162,8 @@ The site includes a Login, Register, Home, Draw, All drawings, Guess and Profile
 
 ##### Draw Page
 
+![drawgif](https://media.giphy.com/media/JR0uxcYHrHfzuxtakE/giphy.gif)
+
 Here the user will be given a randomly generated word which is either an object, character or animal. Using a modified Canvas element the user can attempt to draw it.
 
 The user has access to both a colour pallet and brush size scale for extra creative freedom.
@@ -200,6 +205,8 @@ A user can click on any of the images and this will take them to the **guess pag
 
 #### Guess Page
 
+![guess elephant](https://i.imgur.com/VOAPIk4.png)
+
 The guess page shows the drawing and the username of the person who drew that drawing. The user is given three chances to guess what the drawing is.
 
 The user must enter their answer and press **enter** in order for the guess to be checked against the answer. 
@@ -233,6 +240,8 @@ If you fail all three times, the user will be told what the correct answer was. 
 	  }
 
 #### Profile Page
+
+![profile](https://i.imgur.com/Q9On4rS.png)
 
 The profile page shows the user all of the drawings they've ever made and all the guesses (right or wrong) that other users have made of those images.
 

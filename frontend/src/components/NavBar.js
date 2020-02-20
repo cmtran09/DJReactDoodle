@@ -87,7 +87,7 @@ export default function ButtonAppBar() {
               </div>
             </IconButton>}
              */}
-          <Button color="inherit"><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></Button>
+          <Button color="inherit"><Link to="/" style={{ textDecoration: 'none' }}>Login</Link></Button>
           <Button color="inherit"><Link to="/register" style={{ textDecoration: 'none' }}>Register</Link></Button>
           {Auth.isAuthorized() &&
             <Button color="inherit"><Link to="/login" style={{ textDecoration: 'none' }} onClick={() => { handleLogout() }}>Log Out</Link></Button>
