@@ -58,9 +58,9 @@ These models included:
 - Category  
  
 ### Back-End
-Developing the back-end using Dkango and Python was relatively new to both my partner and I, therefore to avoid any confusion and boost our learning experience, we decided to pair-programme this section.
+Developing the back-end using Django and Python was relatively new to both my partner and I, therefore to avoid any confusion and boost our learning experience, we decided to pair-programme this section.
 
-In the PostgreSQL databas we set up a table for of the five models.
+In the PostgreSQL databas we set up a table for the five models.
 
 ###### User model
 
@@ -79,7 +79,7 @@ For the correct answer model we came up with objects and characters for people t
 	        return f'Correct Answer = {self.correct_answer}'
 
 
-For both categories and correct answers, we created a fictures.json file to store our data in order to seed it back into the database when needed.
+For both categories and correct answers, we created a fixtures.json file to store our data in order to seed it back into the database when needed.
 
 ###### Image model
 
@@ -151,6 +151,8 @@ Again, this route gives a list of all the answers which users can draw to (GET) 
 
 `images/<int:pk>/` & `answers/<int:pk>/` & `users/<int:pk>/` (GET)    
 All these routes GET the data related to the image / answer / user with the specific id provided at the end of the route.
+
+Additionally, `images/<int:pk>/` has a PUT request which links the the user artist to the specific image.
 
 
 ### Front-End
