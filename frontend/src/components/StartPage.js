@@ -43,6 +43,7 @@ const center = {
 
 
 function StartPage(props) {
+ 
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -67,7 +68,7 @@ function StartPage(props) {
   input1.classList.add('noShow')
   small.classList.add('noShow')
 
-  
+
   return (
     <React.Fragment>
       {/* <RadialMenu
