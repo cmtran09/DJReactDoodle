@@ -16,9 +16,9 @@ import NewCanvas from './components/NewCanvas'
 import StartPage from './components/StartPage'
 
 const App = () => (
-  // <Canvas />
+
   <BrowserRouter>
-    <NavBar />
+    <Route url={window.location.href} component={NavBar} />
     <Switch>
       <Route exact path='/' component={Login} />
       <Route exact path='/guess/:id' component={Guess} />

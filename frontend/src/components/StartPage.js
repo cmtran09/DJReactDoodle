@@ -68,6 +68,9 @@ function StartPage(props) {
   input1.classList.add('noShow')
   small.classList.add('noShow')
 
+  function randomAnswer() {
+    return Math.floor(Math.random() * 31) + 1
+  }
 
   return (
     <React.Fragment>
@@ -87,7 +90,7 @@ function StartPage(props) {
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hard2.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/world%202.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hardest.png' />
-      <Button onClick={() => props.history.push('/draw/1')} className='buttonC'>
+      <Button onClick={() => props.history.push(`/draw/${randomAnswer()}`)} className='buttonC'>
         Start
       </Button>
     </React.Fragment>
