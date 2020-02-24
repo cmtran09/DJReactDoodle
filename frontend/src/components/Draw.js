@@ -186,10 +186,10 @@ const Draw = (props) => {
   }
 
   // const skipButton = document.querySelector('.nextAnswerButton')
-  let nextAnswerButton = 'buttonC'
+  let nextAnswerButton = 'buttonC skipButton'
   let submitClassName = 'buttonC '
   let nextClassName = 'noShow'
-  let canvas2 = 'show'
+  let canvas2 = 'show canvasShown'
   if (hideSubmit) {
     submitClassName = 'noShow'
     nextClassName = 'buttonC'
@@ -203,17 +203,30 @@ const Draw = (props) => {
 
   return (
     <React.Fragment>
-      <Tada>
-        <h1>{answer}</h1>
-      </Tada>
-      <button className={submitClassName} onClick={() => { saveImage() }}>SUBMIT YOUR IMAGE</button>
-      <button className={nextClassName} onClick={() => { put() }}>NEXT</button>
-      {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
-      {/* TEST */}
-      <canvas className={canvas2}/>
-      <button className={nextAnswerButton} onClick={() => { props.history.push(`/draw/${randomAnswer()}`) }}> SKIP</button>
-      {/* <NewCanvas props={props} /> */}
-    </React.Fragment>
+      <div className="drawPage">
+        <div className="wordDiv">
+          <Tada >
+            <h1 className="word">{answer}</h1>
+          </Tada>
+        </div>
+        <div className="drawContent">
+          {/* <button onClick={()=>props.match.params.id.history.push(route)}>NEXTprops</button> */}
+          {/* TEST */}
+          <canvas className={canvas2} />
+          <div className="drawButtons">
+            <button className={submitClassName} onClick={() => { saveImage() }}>SUBMIT YOUR IMAGE</button>
+            <button className={nextClassName} onClick={() => { put() }}>NEXT</button>
+            <button className={nextAnswerButton} onClick={() => { props.history.push(`/draw/${randomAnswer()}`) }}> SKIP</button>
+            {/* <NewCanvas props={props} /> */}
+            {/* <div className='colorChanger'>
+              <input type="color" className="js-color-picker  color-picker noShow" value="#6b76ff" />
+              <input type="range" className="js-line-range noShow" min="1" max="72" value="5" />
+              <label className="js-range-value noShow">5</label><small className='noShow'>px</small>
+            </div> */}
+          </div>
+        </div>
+      </div>
+    </React.Fragment >
 
   )
 }

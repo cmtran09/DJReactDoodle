@@ -29,17 +29,11 @@ body {
   background: lightBlue;
 }
 
-/* #icon {
-  display: flex;
-  flex-direction: row;
-  background: pink;
-} */
 
 .iconText {
  font-size: 12px;
  margin: 0;
 }
-
 
 .home {
   text-align: center;
@@ -48,7 +42,7 @@ body {
   background-position: center;
   background-size: cover;
   /* background: blue; */
-  height: 93vh;
+  height: 95vh;
 }
 
 .homeButton {
@@ -71,7 +65,8 @@ font-family: 'Amatic SC', sans-serif;
   outline: none;
   display: inline-block;
   border-radius: 4px;
-  background-color: #147380;
+  /* background-color: #147380; */
+  background-color: rgb(140, 189, 204);
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -194,16 +189,80 @@ button:focus {
   transition: 0s
 }
 
+/* -------- Draw Page ---------- */
+
+.drawPage {
+  padding-top: 2vh;
+  background: url('https://cdn11.bigcommerce.com/s-67d81/images/stencil/original/products/1928/4158/TE29340__14415.1465288534.jpg?c=2&imbypass=on');
+  background: url('https://mediaprojectsix.files.wordpress.com/2015/04/dark-grey-texture-abstract-hd-wallpaper-1920x1200-1223.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 93vh;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+}
+
+.wordDiv {
+  display: flex;
+  justify-content: center;
+  margin: -20px;
+  margin-left: -20%;
+}
+
+.word {
+  /* width: 50%; */
+  text-align: center;
+  padding: 7px 100px;
+  font-size: 80px;
+  background: rgba(173, 216, 230, 0.856);
+  /* border: 8px solid white; */
+  color: white;
+  font-family: 'Amatic SC', sans-serif;
+}
 
 
 canvas {
-  background: lightgrey;
+  background: rgb(226, 223, 223);
   box-shadow: 1px 1px 7px 0px rgba(148,148,148,1);
 }
 
 .color-picker {
-  margin: 1rem 1rem 0 1rem;
+  margin: 2% 0 0 15%;
 }
+
+.canvasShown {
+  margin-right: 5%;
+}
+
+.drawContent {
+  display: flex;
+  justify-content: center;
+}
+
+.drawButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.skipButton {
+  margin-top: 30px;
+}
+
+.colorChanger {
+  width: 50%;
+  position: absolute;
+  /* background: none; */
+  left: 8vw;
+  bottom: 4%;
+  /* top: 80%; */
+  /* top: 80vh; */
+  /* background: pink; */
+}
+
+
+
 
 
 /* ----------- Guess Page ------------ */
