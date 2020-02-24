@@ -1,11 +1,14 @@
-* {
-  background: lightblue;
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Caveat|Indie+Flower|Odibee+Sans&display=swap");
+
+body {
+  margin: 0;
+  height: 100vh;
 }
 
 #center {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
   background: blue;
 }
@@ -13,7 +16,55 @@
 .noShow {
   display: none;
 }
+
+.MuiIconButton-label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 6px 0px;
+  /* align-items: center; */
+}
  
+.navBar {
+  background: lightBlue;
+}
+
+/* #icon {
+  display: flex;
+  flex-direction: row;
+  background: pink;
+} */
+
+.iconText {
+ font-size: 12px;
+ margin: 0;
+}
+
+
+.home {
+  text-align: center;
+  background: url('https://i.imgur.com/luzPoy8.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* background: blue; */
+  height: 93vh;
+}
+
+.homeButton {
+padding: 20px 100px;
+margin-top: 9%;
+font-size: 80px;
+background: rgba(173, 216, 230, 0.856);
+border: 8px solid white;
+color: white;
+font-family: 'Amatic SC', sans-serif;
+}
+
+.homeButton:hover {
+  cursor: pointer;
+}
+
 
 .buttonC {
   font-weight: 600;
@@ -39,11 +90,47 @@ span {
   background: none;
 }
 
+button:focus {
+  outline: 0;
+}
+
 .buttonC span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
+}
+
+@-webkit-keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+@keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+.hvr-pulse-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-pulse-grow:hover, .hvr-pulse-grow:focus, .hvr-pulse-grow:active {
+  -webkit-animation-name: hvr-pulse-grow;
+  animation-name: hvr-pulse-grow;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
 }
 
 .buttonC span:after {

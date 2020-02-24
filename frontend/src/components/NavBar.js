@@ -53,25 +53,27 @@ const ButtonAppBar = (props) => {
   }, [props.match.params])
 
 
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className='navBar'>
           {authorized &&
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="home">
-            <Link to='/start'>
-              <HomeIcon />
-            </Link>
-          </IconButton>}
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="home">
+              <Link to='/start'>
+                <HomeIcon />
+              </Link>
+            </IconButton>}
           <Typography variant="h6" className={classes.title}>
             Scribble
           </Typography>
           {authorized &&
-            <IconButton color="inherit">
+            <IconButton color="inherit" id="icon">
               {/* <BrushIcon badgeContent={0} color="secondary"> */}
               <Link to={`/draw/${randomAnswer()}`}>
                 <BrushIcon />
               </Link>
+              <p className="iconText">Draw</p>
             </IconButton>}
           {authorized &&
             <IconButton color="inherit">
@@ -79,18 +81,21 @@ const ButtonAppBar = (props) => {
               <Link to='/drawings'>
                 <AllInboxIcon />
               </Link>
+              <p className="iconText">Gallery</p>
             </IconButton>}
           {authorized &&
             <IconButton color="inherit">
               <Link to='/guess/1'>     {/* CHANGEEEEETHISSS */}
                 <ArtTrackIcon />
               </Link>
+              <p className="iconText">Guess</p>
             </IconButton>}
           {authorized &&
             <IconButton color="inherit">
               <Link to='/profile'>     {/* CHANGEEEEETHISSS */}
                 <FaceIcon />
               </Link>
+              <p className="iconText">Profile</p>
             </IconButton>}
           {/* {authorized &&
             <IconButton color="inherit">
@@ -100,10 +105,10 @@ const ButtonAppBar = (props) => {
                 </Link>
               </div>
             </IconButton>} */}
-          { !authorized && <Button color="inherit"><Link to="/" style={{ textDecoration: 'none' }}>Login</Link></Button> }
-          { !authorized && <Button color="inherit"><Link to="/register" style={{ textDecoration: 'none' }}>Register</Link></Button> }
+          {!authorized && <Button color="inherit"><Link to="/" style={{ textDecoration: 'none' }}>Login</Link></Button>}
+          {!authorized && <Button color="inherit"><Link to="/register" style={{ textDecoration: 'none' }}>Register</Link></Button>}
           {/* {Auth.isAuthorized() && */}
-          { authorized && <Button color="inherit"><Link to="/" style={{ textDecoration: 'none' }} onClick={() => handleLogout() }>Log Out</Link></Button>}
+          {authorized && <Button color="inherit"><Link to="/" style={{ textDecoration: 'none' }} onClick={() => handleLogout()}>Log Out</Link></Button>}
           {/* } */}
         </Toolbar>
       </AppBar>

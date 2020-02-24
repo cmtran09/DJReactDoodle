@@ -43,7 +43,7 @@ const center = {
 
 
 function StartPage(props) {
- 
+
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -74,25 +74,27 @@ function StartPage(props) {
 
   return (
     <React.Fragment>
-      {/* <RadialMenu
+      <div className='home'>
+        {/* <RadialMenu
                 items={items}
                 center={center}
             /> */}
-      <RadialMenu
+        {/* <RadialMenu
         items={items}
         center={center}
-      />
-      <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/food.png' />
+      /> */}
+        {/* <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/food.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/paintbrush.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/animals.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/emotion.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/fruitveg.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hard2.png' />
       <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/world%202.png' />
-      <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hardest.png' />
-      <Button onClick={() => props.history.push(`/draw/${randomAnswer()}`)} className='buttonC'>
-        Start
-      </Button>
+      <img src='https://raw.githubusercontent.com/Charlotte-Thomas/DJReactDoodle/99ff42e0c6fa58f8af2f26d6e4f91244584aa284/frontend/src/images/hardest.png' /> */}
+        <button onClick={() => props.history.push(`/draw/${randomAnswer()}`)} className='homeButton hvr-pulse-grow '>
+        Start Drawing
+        </button>
+      </div>
     </React.Fragment>
   )
 }
