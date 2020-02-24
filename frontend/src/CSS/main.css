@@ -430,6 +430,7 @@ canvas {
 .header {
   font-size: 45px;
   color: rgb(12, 26, 53);
+  /* background: blue; */
 }
 
 /* ----------Drawings Page ---------- */
