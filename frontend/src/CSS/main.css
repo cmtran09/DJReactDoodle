@@ -437,20 +437,20 @@ canvas {
 .mainDrawings {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: #1d2637;
   /* background-image: url("https://i.pinimg.com/originals/10/69/a7/1069a7113c399a9a9ca3185769c59134.gif");
   background-size: 100%; */
-  height: 95vh;
+  height: 100%;
 }
 
 
 .description {
   background: none;
   color: rgb(155, 217, 233);
-  margin-top: 40px;
-  margin-bottom: 70px;
+  /* margin-top: 40px; */
+  /* margin-bottom: 70px; */
 }
 
 .awesome {
@@ -471,6 +471,7 @@ canvas {
   color: rgb(114, 216, 241);
   font-size: 90px;
   margin: 0;
+  margin-top: 5%;
   font-family: 'Amatic SC', sans-serif;
 }
 
