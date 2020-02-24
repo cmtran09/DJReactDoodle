@@ -66,7 +66,7 @@ const Register = (props) => {
     axios.post('/api/register', form)
       .then(() => {
         if (error.errors === '') {
-          props.history.push('/login')
+          props.history.push('/')
         }
       })
       .catch((err) => setError({ errors: err.response.data }))

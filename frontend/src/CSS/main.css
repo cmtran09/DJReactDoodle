@@ -468,8 +468,10 @@ canvas {
 }
 
 .drawingsHeader {
-  margin-top: -150px;
   color: rgb(114, 216, 241);
+  font-size: 90px;
+  margin: 0;
+  font-family: 'Amatic SC', sans-serif;
 }
 
 .all {

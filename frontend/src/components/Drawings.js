@@ -37,11 +37,11 @@ const Drawings = (props) => {
   // <img src={`http://localhost:4000${data.user_drawn_image}`} alt='drawing not found' width="1000px" height="600px" />
 
   return (<div className="mainDrawings">
-    <h1 className='all background'>ALL</h1>
+    {/* <h1 className='all background'>ALL</h1>
     <div className="imgBackground">
       <img className="awesome" src="https://cdn.dribbble.com/users/199982/screenshots/2814919/awesome-text-stoke-animation.gif"></img>
-    </div>
-    <h1 className='drawingsHeader background'>DRAWINGS</h1>
+    </div> */}
+    <h1 className='drawingsHeader background'>User Gallery</h1>
     <h3 className="description">(Click one to guess what it is!)</h3>
     <div className="background"> {data.map((image, id) => {
       return <Link key={id} to={`/guess/${id + 1}`}>

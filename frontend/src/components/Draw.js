@@ -149,9 +149,10 @@ const Draw = (props) => {
     })
       .then(console.log('PUT DONE'))
       .then(props.history.push(`/draw/${randomAnswer()}`))
-      .then(setDoRefresh(true))
-      .then(console.log(doRefresh))
-      .then(setTimeout(function () { refreshPage(); }, 10)) // why is there a set timeout here fo 1200?
+      .then(setHideSubmit(false))
+      // .then(setDoRefresh(true))
+      // .then(console.log(doRefresh))
+      // .then(setTimeout(function () { refreshPage(); }, 10)) // why is there a set timeout here fo 1200?
 
   }
 
@@ -216,7 +217,7 @@ const Draw = (props) => {
           <div className="drawButtons">
             <button className={submitClassName} onClick={() => { saveImage() }}>SUBMIT YOUR IMAGE</button>
             <button className={nextClassName} onClick={() => { put() }}>NEXT</button>
-            <button className={nextAnswerButton} onClick={() => { props.history.push(`/draw/${randomAnswer()}`) }}> SKIP</button>
+            <button className={nextAnswerButton} onClick={() =>  props.history.push(`/draw/${randomAnswer()}`) }> SKIP</button>
             {/* <NewCanvas props={props} /> */}
             {/* <div className='colorChanger'>
               <input type="color" className="js-color-picker  color-picker noShow" value="#6b76ff" />
