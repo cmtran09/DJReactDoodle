@@ -37,7 +37,8 @@ body {
 
 .home {
   text-align: center;
-  background: url('https://i.imgur.com/luzPoy8.jpg');
+  /* background: url('https://i.imgur.com/luzPoy8.jpg'); */
+  background: url('https://images.pexels.com/photos/933377/pexels-photo-933377.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -47,7 +48,7 @@ body {
 
 .homeButton {
 padding: 20px 100px;
-margin-top: 9%;
+margin-top: 25%;
 font-size: 80px;
 background: rgba(173, 216, 230, 0.856);
 border: 8px solid white;
@@ -272,11 +273,11 @@ canvas {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin-top: 10px;
   background-image: url('https://cdn.pixabay.com/photo/2018/02/06/22/43/painting-3135875_960_720.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   padding-bottom: 50px;
+  height: 91vh;
 }
 
 .formColumn {
@@ -286,7 +287,7 @@ canvas {
   flex-direction: column;
   width: 220px;
   align-items: center;
-  /* background: none; */
+  background: lightblue;
 }
 
 .imgColumn {
@@ -300,13 +301,15 @@ canvas {
 .guessImage {
   border: 20px solid #508eb0;
   border-top: none;
+  background: rgb(226, 223, 223);
   box-shadow: 0 0 0 0 rgba(0,0,0,0.40), 0 17px 50px 0 rgba(0,0,0,0.40);
-  opacity: 95%;
+  opacity: 100%;
 }
 
 .artistName {
   opacity: 95%;
-  font-size: 30px;
+  font-size: 50px;
+  font-family: 'Caveat', sans-serif;
   color: white;
   text-align: center;
   background-color: rgb(57, 91, 104);
@@ -331,15 +334,23 @@ canvas {
 
 .profile {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column; 
   text-align: center;
+  background: #9fc9d6;
+  height: 95vh;
+}
+
+.profileHeader {
+  font-size: 90px;
+  font-family: 'Amatic SC', sans-serif;
+  color: white;
 }
 
 .card-image {
   width: 800px;
-  height: 400px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,36 +375,56 @@ canvas {
   justify-content: space-around;
   flex-direction: row; 
   text-align: center;
+  background: rgb(140, 177, 189);
+}
+
+.guessTitle {
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: -7px;
+  font-family: 'Amatic SC', sans-serif;
+  color: rgb(236, 240, 240);
 }
 
 .guessList {
+  margin-top: 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   width: 600px;
   height: 90%;
+  font-family: 'Caveat';
+  font-size: 20px;
+  /* height: 30%; */
   overflow:hidden;
+  /* background: pink; */
 }
 
 .listItem {
   list-style-type:none;
   text-decoration: none;
-  width: 100%;
+  width: 45%;
+  height: 9%;
+  background: rgb(224, 209, 212);
+  margin: 2px 5px;
 }
 
 .profileImage {
-  border: 5px solid rgb(28, 28, 77);
+  /* border: 5px solid rgb(28, 28, 77); */
   margin-left: 30px;
   margin-bottom: 15px;
-  background: rgb(186, 206, 198);
+  width: 400px;
+  background: rgb(226, 223, 223);
 }
 
 .imgAnswer {
-  font-size: 25px;
-  color: rgb(12, 26, 53);
+  font-size: 30px;
+  /* color: rgb(12, 26, 53); */
+  color: rgb(236, 240, 240);
   font-weight: 700;
+  font-family: 'Amatic SC', sans-serif;
 }
 
 .header {
@@ -411,19 +442,20 @@ canvas {
   background-color: #1d2637;
   /* background-image: url("https://i.pinimg.com/originals/10/69/a7/1069a7113c399a9a9ca3185769c59134.gif");
   background-size: 100%; */
+  height: 95vh;
 }
 
 
 .description {
   background: none;
   color: rgb(155, 217, 233);
-  margin-top: 60px;
+  margin-top: 40px;
   margin-bottom: 70px;
 }
 
 .awesome {
   height: 450px;
-  margin-top: -60px;
+  margin-top: -50px;
 }
 
 .imgBackground {
@@ -432,18 +464,19 @@ canvas {
   /* background: blue; */
   width: 100%;
   padding-bottom: 5px;
+  margin-top: -150px;
 }
 
 .drawingsHeader {
-  margin-top: -190px;
+  margin-top: -150px;
   color: rgb(114, 216, 241);
 }
 
 .all {
   position: absolute;
   font-size: 10px;
-  top:  110px;
-  left: 46.9%;
+  top:  5%;
+  left: 47.4%;
   font-size: 40px;
   color: rgb(114, 216, 241);
 }

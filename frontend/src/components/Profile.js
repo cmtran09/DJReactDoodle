@@ -69,7 +69,7 @@ const Profile = (props) => {
             </Link>
             <div className="imgAnswer">{checkAnswer(img)}</div>
           </div>
-          <ul className="guessList">{checkGuesses(img)}</ul>
+          <ul className="guessList"><h2 className="guessTitle">Guesses Made</h2>{checkGuesses(img)}</ul>
         </figure>
       </div>
     }
@@ -87,15 +87,16 @@ const Profile = (props) => {
 
 
 
-  return (<section className="profile">
-    <h1 className="header">Your Creations</h1>
-    <div className="imgDiv"> {data.map((image, id) => {
-      return <div key={id} to={`/guess/${id + 1}`}>
-        {findImages(image, id)}
+  return (
+    <section className="profile">
+      <h1 className="profileHeader">Your Creations</h1>
+      <div className="imgDiv"> {data.map((image, id) => {
+        return <div key={id} to={`/guess/${id + 1}`}>
+          {findImages(image, id)}
+        </div>
+      })}
       </div>
-    })}
-    </div>
-  </section>
+    </section>
   )
 
 }
