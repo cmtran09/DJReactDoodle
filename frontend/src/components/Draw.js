@@ -136,7 +136,7 @@ const Draw = (props) => {
   }
 
   function randomAnswer() {
-    return Math.floor(Math.random() * 31) + 1
+    return Math.floor(Math.random() * 53) + 1
   }
 
 
