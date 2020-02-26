@@ -339,7 +339,7 @@ canvas {
   flex-direction: column; 
   text-align: center;
   background: #9fc9d6;
-  height: 95vh;
+  height: 100%;
 }
 
 .profileHeader {
