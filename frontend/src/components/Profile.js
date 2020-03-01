@@ -13,7 +13,7 @@ const Profile = (props) => {
     fetch('/api/images/')
       .then(resp => resp.json())
       .then(resp => {
-        console.log(resp)
+        // console.log(resp)
         setData(resp)
         getAnswer()
         getGuesses()
@@ -32,7 +32,7 @@ const Profile = (props) => {
   function getGuesses() {
     axios.get('/api/useranswers/')
       .then(resp => {
-        console.log(resp.data)
+        // console.log(resp.data)
         setGuess(resp.data)
       })
   }
@@ -41,7 +41,7 @@ const Profile = (props) => {
     let giveAnswer = 'none'
     answer.forEach((ans) => {
       if (img.correct_answer === ans.id) {
-        console.log(ans.correct_answer)
+        // console.log(ans.correct_answer)
         giveAnswer = ans.correct_answer
       }
     })
@@ -49,13 +49,23 @@ const Profile = (props) => {
   }
 
   function checkGuesses(img) {
+    // this will provide the most recent 20 guesses for each image
     const giveAnswer = []
-    guess.forEach((g, id) => {
+    let i = 0
+    const guessArray = []
+    // console.log('length', guess.length)
+    guess.forEach((g) => {
       if (g.image === img.id) {
-        console.log(g.user_answer)
-        giveAnswer.push(<li key={id} className="listItem" > {g.user_answer} </li>)
+        guessArray.push(g)
       }
     })
+    guessArray.reverse().forEach((g, id) => {
+      if (i < 20) {
+        giveAnswer.push(<li key={id} className="listItem" > {g.user_answer} </li>)
+      }
+      i++
+    })
+    console.log(guessArray.reverse())
     return giveAnswer
   }
 
@@ -69,7 +79,10 @@ const Profile = (props) => {
             </Link>
             <div className="imgAnswer">{checkAnswer(img)}</div>
           </div>
-          <ul className="guessList"><h2 className="guessTitle">Guesses Made</h2>{checkGuesses(img)}</ul>
+          <div className="rightSide">
+            <h2 className="guessTitle">Guesses Made</h2>
+            <ul className="guessList">{checkGuesses(img)}</ul>
+          </div>
         </figure>
       </div>
     }

@@ -378,26 +378,40 @@ canvas {
   background: rgb(140, 177, 189);
 }
 
+.rightSide {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 600px;
+  font-family: 'Caveat';
+  font-size: 20px;
+  height: 100%;
+  /* background: pink; */
+}
+
 .guessTitle {
   width: 100%;
-  margin-top: -5px;
-  margin-bottom: -7px;
+  margin-top: 5px;
+  /* margin-bottom: -7px; */
   font-family: 'Amatic SC', sans-serif;
   color: rgb(236, 240, 240);
 }
 
 .guessList {
-  margin-top: 0;
+  margin-top: -10px;
+  padding: 0;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 600px;
-  height: 90%;
+  justify-content: flex-start;
+  width: 90%;
+  height: 80%;
   font-family: 'Caveat';
   font-size: 20px;
-  /* height: 30%; */
+  /* height: 30%;
   overflow:hidden;
   /* background: pink; */
 }
@@ -406,7 +420,7 @@ canvas {
   list-style-type:none;
   text-decoration: none;
   width: 45%;
-  height: 9%;
+  height: 8%;
   background: rgb(224, 209, 212);
   margin: 2px 5px;
 }
@@ -415,6 +429,7 @@ canvas {
   /* border: 5px solid rgb(28, 28, 77); */
   margin-left: 30px;
   margin-bottom: 15px;
+  margin-top: 24px;
   width: 400px;
   background: rgb(226, 223, 223);
 }
